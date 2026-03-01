@@ -27,7 +27,7 @@
         </a>
         
         <div class="relative inline-block text-left" id="user-dropdown-container">
-            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-xl transition-all outline-none border border-transparent focus:border-gray-200">
+            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none border border-transparent focus:border-gray-200">
                 <div class="text-right hidden md:block">
                     <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
                     <p class="text-[10px] font-semibold text-gray-500">Perguruan Tinggi Negeri</p>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </button>
-            <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-2xl shadow-xl z-50 overflow-hidden">
+            <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden">
                 <div class="py-1">
                     <a href="index.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-home w-5 mr-2"></i> Dashboard</a>
                     <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-user-circle w-5 mr-2"></i> Profil Kampus</a>
@@ -51,14 +51,16 @@
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl">
-        
+    
         <div class="flex flex-col md:flex-row items-center gap-6 mb-10 text-center md:text-left">
             <div class="bg-white p-6 rounded-md shadow-sm border border-blue-50">
-                <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="logo" class="h-24 w-auto">
+                <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="logo" class="h-24">
+                <!-- <i class="fas fa-chalkboard-teacher text-blue-600 text-3xl"></i> -->
             </div>
             <div>
-                <p class="text-blue-600 font-bold text-sm uppercase tracking-wide">Program Detail:</p>
-                <h1 class="text-2xl md:text-4xl font-extrabold text-blue-950 mb-2 leading-tight">Revitalisasi LPTK</h1>
+                <p class="text-blue-600 font-bold text-sm uppercase tracking-wide">Detail Program:</p>
+                <h1 class="text-2xl md:text-4xl font-extrabold text-blue-950 mb-2 leading-tight">Revitalisasi LPTK 2026</h1>
+                <p class="text-gray-500 text-sm md:text-base">Penguatan Lembaga Pendidikan Tenaga Kependidikan untuk Guru Masa Depan.</p>
             </div>
         </div>
 
@@ -73,22 +75,22 @@
                         <h3 class="font-bold text-lg">Deskripsi Program</h3>
                     </div>
                     <p class="text-sm text-gray-600 text-justify leading-relaxed mb-8">
-                        Program Revitalisasi LPTK (Lembaga Pendidikan Tenaga Kependidikan) merupakan upaya strategis pemerintah untuk meningkatkan kualitas dan relevansi pendidikan guru. Program ini mencakup pembaruan kurikulum, penguatan kompetensi dosen, peningkatan sarana dan prasarana, serta kemitraan dengan sekolah-sekolah. Tujuannya adalah menciptakan calon guru yang profesional, adaptif terhadap perubahan zaman, serta mampu menghasilkan lulusan berdaya saing tinggi dalam menghadapi tantangan pendidikan di era digital.
+                        Program Revitalisasi LPTK merupakan inisiatif strategis untuk meningkatkan mutu pendidikan guru di Indonesia. Fokus utama program ini meliputi pengembangan kurikulum inovatif, penguatan kapasitas SDM dosen, serta modernisasi sarana pembelajaran digital guna menghasilkan lulusan guru yang kompeten dan adaptif.
                     </p>
                     
                     <div class="space-y-6">
                         <div class="flex gap-4">
-                            <div class="text-blue-400 mt-1"><i class="fas fa-users text-xl"></i></div>
+                            <div class="text-blue-400 mt-1"><i class="fas fa-bullseye text-xl"></i></div>
                             <div>
-                                <h4 class="font-bold text-sm">Tujuan Menuhakan</h4>
-                                <p class="text-xs text-gray-500">Peningkatan sarana dan prasarana pendidikan tinggi ssuta pekemar penelitian.</p>
+                                <h4 class="font-bold text-sm text-gray-800">Tujuan Utama</h4>
+                                <p class="text-xs text-gray-500">Meningkatkan standar kualitas penyelenggaraan pendidikan profesi guru dan tenaga kependidikan secara nasional.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="text-blue-400 mt-1"><i class="fas fa-microscope text-xl"></i></div>
+                            <div class="text-blue-400 mt-1"><i class="fas fa-chalkboard-teacher text-xl"></i></div>
                             <div>
-                                <h4 class="font-bold text-sm">Tema Penelitian</h4>
-                                <p class="text-xs text-gray-500">Peningkatan sarana dan prunuuk mengruara pendidikan dengan pendidikan sarana dan prasarana pendidikan tinggi.</p>
+                                <h4 class="font-bold text-sm text-gray-800">Fokus Revitalisasi</h4>
+                                <p class="text-xs text-gray-500">Integrasi teknologi dalam pembelajaran, penguatan laboratorium pendidikan, dan kolaborasi sekolah mitra.</p>
                             </div>
                         </div>
                     </div>
@@ -105,10 +107,10 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg text-blue-950">Lini Masa & Tahapan Proses</h3>
-                                <p class="text-[10px] text-gray-500" id="current-date-display"></p>
+                                <p class="text-[10px] text-gray-500" id="current-date-display">Sinkronisasi jadwal otomatis...</p>
                             </div>
                         </div>
-                        <span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full border border-blue-100 uppercase tracking-wider self-start md:self-center">
+                        <span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full border border-blue-100 uppercase tracking-wider">
                             Tahun Anggaran 2026
                         </span>
                     </div>
@@ -125,25 +127,28 @@
                     <div class="bg-white p-8 rounded-md border border-gray-100 shadow-sm">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="bg-blue-600 py-2 px-3 rounded-md text-white">
-                                <i class="fas fa-user-friends"></i>
+                                <i class="fas fa-user-check"></i>
                             </div>
-                            <h3 class="font-bold text-lg">Sasaran & Kriteria Peserta</h3>
+                            <h3 class="font-bold text-lg">Sasaran & Kriteria</h3>
                         </div>
-                        <p class="text-xs font-bold mb-3">Peserta peserta yang legik:</p>
-                        <ul class="text-xs text-gray-600 space-y-2 list-disc ml-4">
-                            <li>Penelitian Unggulan</li>
-                            <li>Perguruan Tinggi dalam negeri</li>
-                            <li>Program:
-                                <ul class="ml-4 mt-1 space-y-1 list-disc">
-                                    <li>Universitasi penelitian</li>
-                                    <li>Peningkatan sarana dan prasarana pendidikan unggulan</li>
-                                    <li>Kegitan Tri Dharma Perguruan Tinggi</li>
-                                </ul>
+                        <p class="text-xs font-bold mb-3 text-blue-900">Kriteria Institusi Pengusul:</p>
+                        <ul class="text-xs text-gray-600 space-y-3">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
+                                <span>LPTK yang memiliki izin operasional aktif dari Kemendikbudristek.</span>
                             </li>
-                            <li class="font-bold text-gray-800">Benchmark Kualitas</li>
-                            <ul class="ml-4 mt-1 space-y-1 list-disc">
-                                <li>Penilaian dari pihak evaluator terkait.</li>
-                            </ul>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
+                                <span>Memiliki program studi kependidikan dengan akreditasi minimal B/Baik Sekali.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
+                                <span>Berkomitmen dalam pelaksanaan program Tri Dharma Perguruan Tinggi secara konsisten.</span>
+                            </li>
+                            <li class="pt-2">
+                                <span class="font-bold text-gray-800">Standar Kualitas:</span>
+                                <p class="mt-1">Evaluasi didasarkan pada rekam jejak institusi dan relevansi proposal terhadap kebutuhan lokal/nasional.</p>
+                            </li>
                         </ul>
                     </div>
 
@@ -152,44 +157,43 @@
                             <div class="bg-blue-600 py-2 px-3 rounded-md text-white">
                                 <i class="fas fa-file-invoice"></i>
                             </div>
-                            <h3 class="font-bold text-lg">Persyaratan & Dokumen</h3>
+                            <h3 class="font-bold text-lg">Dokumen Administrasi</h3>
                         </div>
-                        <p class="text-xs mb-4">Persyaratan & dokumen:</p>
+                        <p class="text-xs mb-4 text-gray-500">Unduh template dokumen resmi di bawah ini:</p>
                         
                         <div class="space-y-3 mb-8">
-                            <div class="bg-white p-3 rounded-xl border border-blue-100 flex items-center justify-between">
+                            <div class="bg-white p-3 rounded-md border border-blue-100 flex items-center justify-between group hover:border-blue-400 transition-colors">
                                 <div class="flex items-center gap-2">
-                                    <i class="far fa-file-alt text-gray-400"></i>
-                                    <span class="text-xs font-bold">CV</span>
+                                    <i class="far fa-file-powerpoint text-blue-500"></i>
+                                    <span class="text-xs font-bold">Pakta Integritas</span>
                                 </div>
-                                <i class="fas fa-download text-blue-600 text-xs cursor-pointer"></i>
-                            </div>
-                            <div class="bg-white p-3 rounded-xl border border-blue-100 flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <i class="far fa-file-pdf text-gray-400"></i>
-                                    <span class="text-xs font-bold leading-tight">Proposal & Dokumen <br> Template</span>
-                                </div>
-                                <button class="bg-gray-100 text-[10px] px-3 py-1 rounded-md font-bold text-blue-600 flex items-center gap-2">
-                                    Template <i class="fas fa-download"></i>
+                                <button class="bg-blue-50 text-[10px] px-3 py-1 rounded-md font-bold text-blue-600 flex items-center gap-2">
+                                    PPT <i class="fas fa-download"></i>
                                 </button>
                             </div>
-                            <div class="bg-white p-3 rounded-xl border border-blue-100 flex items-center justify-between">
+                            <div class="bg-white p-3 rounded-md border border-blue-100 flex items-center justify-between group hover:border-blue-400 transition-colors">
                                 <div class="flex items-center gap-2">
-                                    <i class="far fa-file-word text-gray-400"></i>
-                                    <span class="text-xs font-bold">Proposal <br> <span class="text-[9px] font-normal text-gray-400">(Template dosumc)</span></span>
+                                    <i class="far fa-file-pdf text-red-500"></i>
+                                    <span class="text-xs font-bold">Panduan Teknis Revitalisasi</span>
                                 </div>
-                                <button class="bg-gray-100 text-[10px] px-3 py-1 rounded-md font-bold text-blue-600 flex items-center gap-2">
-                                    Template <i class="fas fa-download"></i>
+                                <button class="bg-blue-50 text-[10px] px-3 py-1 rounded-md font-bold text-blue-600 flex items-center gap-2">
+                                    PDF <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                            <div class="bg-white p-3 rounded-md border border-blue-100 flex items-center justify-between group hover:border-blue-400 transition-colors">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-file-word text-blue-600"></i>
+                                    <span class="text-xs font-bold leading-tight">Template Proposal <br> <span class="text-[9px] font-normal text-gray-400">(Format Dokumen .docx)</span></span>
+                                </div>
+                                <button class="bg-blue-50 text-[10px] px-3 py-1 rounded-md font-bold text-blue-600 flex items-center gap-2">
+                                    DOCX <i class="fas fa-download"></i>
                                 </button>
                             </div>
                         </div>
 
                         <div class="mt-auto space-y-3">
-                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full text-sm shadow-lg shadow-blue-200 transition-all">
-                                Ajukan Proposal
-                            </button>
-                            <button class="w-full bg-white border-2 border-blue-600 text-blue-600 font-bold py-3 rounded-full text-sm hover:bg-blue-50 transition-all">
-                                Unduh Panduan
+                            <button class="w-full bg-blue-600 border-2 border-blue-600 text-white font-bold py-3 rounded-md text-sm hover:bg-white hover:text-blue-600 transition-all">
+                                Ajukan Proposal Sekarang
                             </button>
                         </div>
                     </div>
