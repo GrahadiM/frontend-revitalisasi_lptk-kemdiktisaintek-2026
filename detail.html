@@ -101,135 +101,30 @@
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
                         <div class="flex items-center gap-3">
                             <div class="bg-blue-600 py-2 px-3 rounded-md text-white">
-                                <i class="far fa-calendar-alt"></i>
+                                <i class="fas fa-history"></i>
                             </div>
-                            <h3 class="font-bold text-lg text-blue-950">Lini Masa & Tahapan Proses 2026</h3>
+                            <div>
+                                <h3 class="font-bold text-lg text-blue-950">Lini Masa & Tahapan Proses</h3>
+                                <p class="text-[10px] text-gray-500" id="current-date-display"></p>
+                            </div>
                         </div>
                         <span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full border border-blue-100 uppercase tracking-wider self-start md:self-center">
                             Tahun Anggaran 2026
                         </span>
                     </div>
 
-                    <div class="hidden lg:block relative pb-12 pt-16">
+                    <div class="hidden lg:block relative pb-12 pt-16" id="timeline-desktop">
                         <div class="absolute top-[100px] left-0 w-full h-1 bg-gray-100 rounded-full"></div>
-                        
-                        <div class="relative flex justify-between">
-                            <div class="flex flex-col items-center w-1/6 group">
-                                <div class="absolute -top-10 text-[10px] font-bold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 px-2 py-1 rounded border border-blue-100">Batas: 1 Des</div>
-                                <div class="z-10 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg border-4 border-white mb-4">
-                                    <i class="fas fa-file-upload text-xs"></i>
-                                </div>
-                                <h4 class="text-[10px] font-bold text-center uppercase mb-1">Pengisian Data</h4>
-                                <p class="text-[9px] text-gray-400 text-center">27 Mei - 1 Des 2025</p>
-                            </div>
-
-                            <div class="flex flex-col items-center w-1/6">
-                                <div class="z-10 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg border-4 border-white mb-4">
-                                    <i class="fas fa-user-edit text-xs"></i>
-                                </div>
-                                <h4 class="text-[10px] font-bold text-center uppercase mb-1">Pendaftaran</h4>
-                                <p class="text-[9px] text-gray-400 text-center">27 Mei - 26 Jun 2025</p>
-                            </div>
-
-                            <div class="flex flex-col items-center w-1/6 relative">
-                                <div class="absolute -top-8 bg-orange-500 text-white text-[8px] px-2 py-0.5 rounded-md animate-bounce">SEKARANG</div>
-                                <div class="z-10 w-12 h-12 rounded-full bg-white text-orange-500 flex items-center justify-center shadow-xl border-4 border-orange-500 mb-3 -mt-1">
-                                    <i class="fas fa-search text-sm"></i>
-                                </div>
-                                <h4 class="text-[10px] font-extrabold text-center text-blue-900 uppercase mb-1">Seleksi</h4>
-                                <p class="text-[9px] text-orange-600 font-semibold text-center">17 Jun - 5 Jul 2025</p>
-                            </div>
-
-                            <div class="flex flex-col items-center w-1/6">
-                                <div class="z-10 w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center border-4 border-white mb-4">
-                                    <i class="fas fa-bullhorn text-xs"></i>
-                                </div>
-                                <h4 class="text-[10px] font-bold text-center text-gray-400 uppercase mb-1">Pengumuman</h4>
-                                <p class="text-[9px] text-gray-400 text-center">21 Jul 2025</p>
-                            </div>
-
-                            <div class="flex flex-col items-center w-1/6">
-                                <div class="z-10 w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center border-4 border-white mb-4">
-                                    <i class="fas fa-pen-nib text-xs"></i>
-                                </div>
-                                <h4 class="text-[10px] font-bold text-center text-gray-400 uppercase mb-1">Kontrak</h4>
-                                <p class="text-[9px] text-gray-400 text-center">25 Jul 2025</p>
-                            </div>
-
-                            <div class="flex flex-col items-center w-1/6">
-                                <div class="z-10 w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center border-4 border-white mb-4">
-                                    <i class="fas fa-clipboard-check text-xs"></i>
-                                </div>
-                                <h4 class="text-[10px] font-bold text-center text-gray-400 uppercase mb-1">Monev & Lapor</h4>
-                                <p class="text-[9px] text-gray-400 text-center">Agt - Des 2025</p>
-                            </div>
-                        </div>
+                        <div class="relative flex justify-between" id="desktop-steps-container"></div>
                     </div>
 
-                    <div class="lg:hidden space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-600 before:via-orange-500 before:to-gray-200">
-                        
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-600 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                                <i class="fas fa-file-alt text-xs"></i>
-                            </div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-blue-100 bg-blue-50/30">
-                                <div class="flex items-center justify-between mb-1">
-                                    <time class="font-bold text-[10px] text-blue-600 uppercase">27 Mei - 1 Des 2025</time>
-                                    <span class="text-[8px] bg-blue-600 text-white px-2 py-0.5 rounded">Selesai</span>
-                                </div>
-                                <div class="text-xs font-bold text-blue-900">Pengisian Data & Unggah Berkas</div>
-                                <div class="text-[9px] text-gray-500 italic mt-1 leading-tight">Batas waktu ketentuan pengiriman berkas fisik.</div>
-                            </div>
-                        </div>
-
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                                <i class="fas fa-user-check text-xs"></i>
-                            </div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-white">
-                                <time class="font-bold text-[10px] text-gray-400 uppercase">27 Mei - 26 Jun 2025</time>
-                                <div class="text-xs font-bold text-gray-800">Proses Pendaftaran</div>
-                            </div>
-                        </div>
-
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-orange-100 bg-orange-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 animate-pulse">
-                                <i class="fas fa-microscope text-xs"></i>
-                            </div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border-2 border-orange-200 bg-orange-50 shadow-sm">
-                                <div class="flex items-center justify-between mb-1">
-                                    <time class="font-bold text-[10px] text-orange-600 uppercase">17 Jun - 5 Jul 2025</time>
-                                    <span class="text-[8px] bg-orange-500 text-white px-2 py-0.5 rounded">Berjalan</span>
-                                </div>
-                                <div class="text-xs font-bold text-blue-950">Proses Seleksi</div>
-                            </div>
-                        </div>
-
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-200 text-gray-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                                <i class="fas fa-bullhorn text-xs"></i>
-                            </div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-white">
-                                <time class="font-bold text-[10px] text-gray-400 uppercase">21 Juli 2025</time>
-                                <div class="text-xs font-bold text-gray-400">Pengumuman Hasil</div>
-                            </div>
-                        </div>
-
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-200 text-gray-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-[10px]">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 text-center">
-                                <button class="text-[10px] font-bold text-blue-600 hover:underline">Lihat Semua Tahapan (7)</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="lg:hidden space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gray-100" id="timeline-mobile"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-white p-8 rounded-md border border-gray-100 shadow-sm">
                         <div class="flex items-center gap-3 mb-6">
-                            <div class="bg-blue-600 p-2 rounded-lg text-white">
+                            <div class="bg-blue-600 py-2 px-3 rounded-md text-white">
                                 <i class="fas fa-user-friends"></i>
                             </div>
                             <h3 class="font-bold text-lg">Sasaran & Kriteria Peserta</h3>
@@ -237,22 +132,24 @@
                         <p class="text-xs font-bold mb-3">Peserta peserta yang legik:</p>
                         <ul class="text-xs text-gray-600 space-y-2 list-disc ml-4">
                             <li>Penelitian Unggulan</li>
-                            <li>Universitas parigisdabai talan</li>
+                            <li>Perguruan Tinggi dalam negeri</li>
                             <li>Program:
-                                <ul class="ml-4 mt-1 space-y-1 list-circle">
+                                <ul class="ml-4 mt-1 space-y-1 list-disc">
                                     <li>Universitasi penelitian</li>
-                                    <li>Peningkatan sarana anth unggulan</li>
-                                    <li>Peningkakanan sarana dan prasarana pendidikan tinggi.</li>
+                                    <li>Peningkatan sarana dan prasarana pendidikan unggulan</li>
+                                    <li>Kegitan Tri Dharma Perguruan Tinggi</li>
                                 </ul>
                             </li>
                             <li class="font-bold text-gray-800">Benchmark Kualitas</li>
-                            <li>Keringkatan lidtut menhart kualitas dan bilansknyal.</li>
+                            <ul class="ml-4 mt-1 space-y-1 list-disc">
+                                <li>Penilaian dari pihak evaluator terkait.</li>
+                            </ul>
                         </ul>
                     </div>
 
                     <div class="bg-blue-50/50 p-8 rounded-md border border-blue-100 shadow-sm flex flex-col">
                         <div class="flex items-center gap-3 mb-6">
-                            <div class="bg-blue-600 p-2 rounded-lg text-white">
+                            <div class="bg-blue-600 py-2 px-3 rounded-md text-white">
                                 <i class="fas fa-file-invoice"></i>
                             </div>
                             <h3 class="font-bold text-lg">Persyaratan & Dokumen</h3>
@@ -351,6 +248,123 @@
         window.addEventListener('click', () => {
             dropdownMenu.classList.remove('show');
         });
+
+        // Konfigurasi Jadwal 2026
+        const schedule2026 = [
+            { 
+                label: "Pendaftaran", 
+                start: "2026-01-01", 
+                end: "2026-01-31", 
+                icon: "fa-user-edit", 
+                displayDate: "01 - 31 Januari 2026"
+            },
+            { 
+                label: "Seleksi", 
+                start: "2026-02-01", 
+                end: "2026-02-28", 
+                icon: "fa-search", 
+                displayDate: "01 - 28 Februari 2026"
+            },
+            { 
+                label: "Pengumuman", 
+                start: "2026-03-01", 
+                end: "2026-03-31", 
+                icon: "fa-bullhorn", 
+                displayDate: "01 - 31 Maret 2026"
+            },
+            { 
+                label: "Kontrak", 
+                start: "2026-04-01", 
+                end: "2026-04-30", 
+                icon: "fa-pen-nib", 
+                displayDate: "01 - 30 April 2026"
+            },
+            { 
+                label: "Monev", 
+                start: "2026-05-01", 
+                end: "2026-08-31", 
+                icon: "fa-chart-line",
+                displayDate: "01 Mei - 31 Agustus 2026" 
+            },
+            { 
+                label: "Pelaporan", 
+                start: "2026-12-01", 
+                end: "2026-12-01", 
+                icon: "fa-file-export",
+                displayDate: "01 Desember 2026"
+            }
+        ];
+
+        function updateTimeline() {
+            const now = new Date();
+            // baris di bawah ini untuk testing tanggal spesifik (opsional):
+            // const now = new Date('2026-06-20'); 
+
+            const desktopContainer = document.getElementById('desktop-steps-container');
+            const mobileContainer = document.getElementById('timeline-mobile');
+            const dateDisplay = document.getElementById('current-date-display');
+
+            dateDisplay.innerText = `Status per: ${now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}`;
+
+            let desktopHTML = '';
+            let mobileHTML = '';
+
+            schedule2026.forEach((item, index) => {
+                const startDate = new Date(item.start);
+                const endDate = new Date(item.end);
+                let status = 'upcoming'; // default
+
+                if (now > endDate) {
+                    status = 'completed';
+                } else if (now >= startDate && now <= endDate) {
+                    status = 'active';
+                }
+
+                // Formatting Status Styles
+                const config = {
+                    completed: { dot: 'bg-blue-600', text: 'text-blue-600', badge: 'Selesai', icon: 'text-white' },
+                    active: { dot: 'bg-orange-500 scale-125 ring-4 ring-orange-100', text: 'text-orange-600 font-bold', badge: 'Berjalan', icon: 'text-white animate-pulse' },
+                    upcoming: { dot: 'bg-gray-200', text: 'text-gray-400', badge: 'Mendatang', icon: 'text-gray-400' }
+                };
+
+                const s = config[status];
+                const dateRange = item.displayDate || `${startDate.toLocaleDateString('id-ID', {day:'numeric', month:'short'})} ${item.start !== item.end ? '- ' + endDate.toLocaleDateString('id-ID', {day:'numeric', month:'short'}) : ''}`;
+
+                // Template Desktop
+                desktopHTML += `
+                    <div class="flex flex-col items-center w-1/6 relative group">
+                        ${status === 'active' ? '<div class="absolute -top-10 bg-orange-500 text-white text-[8px] px-2 py-0.5 rounded animate-bounce">SEKARANG</div>' : ''}
+                        <div class="z-10 w-10 h-10 rounded-full ${s.dot} flex items-center justify-center border-4 border-white mb-4 transition-all duration-500">
+                            <i class="fas ${item.icon} text-xs ${s.icon}"></i>
+                        </div>
+                        <h4 class="text-[10px] uppercase mb-1 text-center ${s.text}">${item.label}</h4>
+                        <p class="text-[9px] text-gray-400 text-center">${dateRange}</p>
+                    </div>
+                `;
+
+                // Template Mobile
+                mobileHTML += `
+                    <div class="relative flex items-center gap-4">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full border-4 border-white ${s.dot} shadow-sm shrink-0">
+                            <i class="fas ${item.icon} text-xs ${s.icon}"></i>
+                        </div>
+                        <div class="flex-1 p-4 rounded-2xl border ${status === 'active' ? 'border-orange-200 bg-orange-50' : 'border-gray-100 bg-white'}">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="text-[9px] font-bold ${s.text} uppercase">${dateRange}</span>
+                                <span class="text-[8px] px-2 py-0.5 rounded-full ${status === 'active' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-400'}">${s.badge}</span>
+                            </div>
+                            <h4 class="text-xs font-bold text-blue-900">${item.label}</h4>
+                        </div>
+                    </div>
+                `;
+            });
+
+            desktopContainer.innerHTML = desktopHTML;
+            mobileContainer.innerHTML = mobileHTML;
+        }
+
+        // Jalankan saat halaman dimuat
+        window.onload = updateTimeline;
     </script>
 </body>
 </html>
