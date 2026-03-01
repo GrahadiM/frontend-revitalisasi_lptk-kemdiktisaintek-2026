@@ -14,15 +14,19 @@
         .dropdown-menu.show { display: block; opacity: 1; transform: translateY(0); }
         
         /* Status Badge Variants */
-        .badge { font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase; border: 1px solid; display: inline-block; }
-        .st-draft { background-color: #f3f4f6; color: #4b5563; border-color: #d1d5db; } /* Gray */
-        .st-proses { background-color: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; } /* Blue */
-        .st-admin-pass { background-color: #ecfdf5; color: #059669; border-color: #a7f3d0; } /* Green */
-        .st-substansi-pass { background-color: #f0fdf4; color: #166534; border-color: #bbf7d0; font-weight: 800; } /* Dark Green */
-        .st-admin-fail { background-color: #fff1f2; color: #e11d48; border-color: #fecdd3; } /* Pink/Red */
-        .st-substansi-fail { background-color: #fef2f2; color: #991b1b; border-color: #fecaca; } /* Deep Red */
-        .st-laporan { background-color: #fff7ed; color: #c2410c; border-color: #fed7aa; } /* Orange */
-        .st-akhir { background-color: #faf5ff; color: #7e22ce; border-color: #e9d5ff; } /* Purple */
+        .badge { font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase; border: 1px solid; display: inline-block; white-space: nowrap; }
+        .st-draft { background-color: #f3f4f6; color: #4b5563; border-color: #d1d5db; }
+        .st-proses { background-color: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+        .st-admin-pass { background-color: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+        .st-substansi-pass { background-color: #f0fdf4; color: #166534; border-color: #bbf7d0; font-weight: 800; }
+        .st-admin-fail { background-color: #fff1f2; color: #e11d48; border-color: #fecdd3; }
+        .st-substansi-fail { background-color: #fef2f2; color: #991b1b; border-color: #fecaca; }
+        .st-laporan { background-color: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+        .st-akhir { background-color: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
+
+        /* Menjaga lebar kolom agar konsisten */
+        .col-skema { min-width: 140px; }
+        .col-status { min-width: 180px; }
     </style>
 </head>
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
@@ -68,124 +72,132 @@
             </button>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
-                <p class="text-[10px] font-bold text-gray-400 uppercase">Total Data</p>
-                <p class="text-xl font-bold text-blue-900">08</p>
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm mb-6 flex flex-wrap gap-4 items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-filter text-blue-600 text-sm"></i>
+                <span class="text-xs font-bold text-gray-600 uppercase">Filter:</span>
             </div>
-            <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
-                <p class="text-[10px] font-bold text-green-500 uppercase">Lolos Seleksi</p>
-                <p class="text-xl font-bold text-green-600">02</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
-                <p class="text-[10px] font-bold text-orange-500 uppercase">Perlu Laporan</p>
-                <p class="text-xl font-bold text-orange-600">02</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
-                <p class="text-[10px] font-bold text-red-400 uppercase">Tidak Lolos</p>
-                <p class="text-xl font-bold text-red-500">02</p>
-            </div>
+            <select id="filter-skema" class="text-xs border border-gray-200 rounded-md px-3 py-2 outline-none focus:border-blue-500 bg-gray-50">
+                <option value="all">Semua Skema</option>
+                <option value="Inovasi Digital">Inovasi Digital</option>
+                <option value="Pengabdian">Pengabdian</option>
+                <option value="Sarpras">Sarpras</option>
+                <option value="SDM">SDM</option>
+                <option value="Kurikulum">Kurikulum</option>
+            </select>
+            <select id="filter-status" class="text-xs border border-gray-200 rounded-md px-3 py-2 outline-none focus:border-blue-500 bg-gray-50">
+                <option value="all">Semua Status</option>
+                <option value="Draft">Draft</option>
+                <option value="Proses Review">Proses Review</option>
+                <option value="Lolos Administrasi">Lolos Administrasi</option>
+                <option value="Lolos Substansi">Lolos Substansi</option>
+                <option value="Tidak Lolos Administrasi">Tidak Lolos Administrasi</option>
+                <option value="Tidak Lolos Substansi">Tidak Lolos Substansi</option>
+                <option value="Laporan Kegiatan">Laporan Kegiatan</option>
+                <option value="Laporan Akhir">Laporan Akhir</option>
+            </select>
+            <button onclick="resetFilters()" class="text-[10px] font-bold text-red-500 hover:underline ml-auto">Reset Filter</button>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left">
+                <table class="w-full text-sm text-left" id="proposal-table">
                     <thead>
                         <tr class="bg-gray-50 border-b border-gray-100 text-[10px] uppercase font-bold text-gray-600">
                             <th class="px-6 py-4">ID & Tanggal</th>
                             <th class="px-6 py-4">Judul Proposal</th>
-                            <th class="px-6 py-4">Skema</th>
-                            <th class="px-6 py-4">Status Terkini</th>
+                            <th class="px-6 py-4 col-skema">Skema</th>
+                            <th class="px-6 py-4 col-status">Status Terkini</th>
                             <th class="px-6 py-4 text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Inovasi Digital" data-status="Laporan Akhir">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-001</p>
                                 <p class="text-[10px] text-gray-400">05 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Digitalisasi Media Pembelajaran Berbasis AI</td>
-                            <td class="px-6 py-5"><span class="text-[10px] bg-purple-50 text-purple-600 px-2 py-1 rounded">Inovasi Digital</span></td>
-                            <td class="px-6 py-5"><span class="badge st-akhir">Laporan Akhir</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-purple-50 text-purple-600 px-2 py-1 rounded">Inovasi Digital</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-akhir">Laporan Akhir</span></td>
                             <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs"><i class="fas fa-file-alt mr-1"></i> Detail</button></td>
                         </tr>
 
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Pengabdian" data-status="Laporan Kegiatan">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-002</p>
                                 <p class="text-[10px] text-gray-400">10 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Peningkatan Kompetensi Guru di Wilayah 3T</td>
-                            <td class="px-6 py-5"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Pengabdian</span></td>
-                            <td class="px-6 py-5"><span class="badge st-laporan">Laporan Kegiatan</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Pengabdian</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-laporan">Laporan Kegiatan</span></td>
                             <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs"><i class="fas fa-upload mr-1"></i> Upload</button></td>
                         </tr>
 
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Sarpras" data-status="Lolos Substansi">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-003</p>
                                 <p class="text-[10px] text-gray-400">15 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Revitalisasi Lab Microteaching Standar Internasional</td>
-                            <td class="px-6 py-5"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Sarpras</span></td>
-                            <td class="px-6 py-5"><span class="badge st-substansi-pass">Lolos Substansi</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Sarpras</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-substansi-pass">Lolos Substansi</span></td>
                             <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs"><i class="fas fa-eye"></i></button></td>
                         </tr>
 
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="SDM" data-status="Lolos Administrasi">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-004</p>
                                 <p class="text-[10px] text-gray-400">20 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Workshop Penulisan Jurnal Bereputasi bagi Dosen LPTK</td>
-                            <td class="px-6 py-5"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">SDM</span></td>
-                            <td class="px-6 py-5"><span class="badge st-admin-pass">Lolos Administrasi</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">SDM</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-admin-pass">Lolos Administrasi</span></td>
                             <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs">Pantau</button></td>
                         </tr>
 
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Kurikulum" data-status="Proses Review">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-005</p>
                                 <p class="text-[10px] text-gray-400">01 Feb 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Pengembangan Kurikulum OBE pada Prodi Kependidikan</td>
-                            <td class="px-6 py-5"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Kurikulum</span></td>
-                            <td class="px-6 py-5"><span class="badge st-proses">Proses Review</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Kurikulum</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-proses">Proses Review</span></td>
                             <td class="px-6 py-5 text-center"><i class="fas fa-spinner fa-spin text-blue-400"></i></td>
                         </tr>
 
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Lainnya" data-status="Tidak Lolos Substansi">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-006</p>
                                 <p class="text-[10px] text-gray-400">10 Feb 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-400">Studi Banding LPTK ke Finlandia</td>
-                            <td class="px-6 py-5"><span class="text-[10px] bg-gray-50 text-gray-400 px-2 py-1 rounded">Lainnya</span></td>
-                            <td class="px-6 py-5"><span class="badge st-substansi-fail">Tidak Lolos Substansi</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-gray-50 text-gray-400 px-2 py-1 rounded">Lainnya</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-substansi-fail">Tidak Lolos Substansi</span></td>
                             <td class="px-6 py-5 text-center"><button class="text-red-600 hover:underline font-bold text-xs">Catatan</button></td>
                         </tr>
 
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Sarpras" data-status="Tidak Lolos Administrasi">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-007</p>
                                 <p class="text-[10px] text-gray-400">15 Feb 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-400">Pengadaan Bus Kampus Ramah Lingkungan</td>
-                            <td class="px-6 py-5"><span class="text-[10px] bg-gray-50 text-gray-400 px-2 py-1 rounded">Sarpras</span></td>
-                            <td class="px-6 py-5"><span class="badge st-admin-fail">Tidak Lolos Administrasi</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-gray-50 text-gray-400 px-2 py-1 rounded">Sarpras</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-admin-fail">Tidak Lolos Administrasi</span></td>
                             <td class="px-6 py-5 text-center"><i class="fas fa-times-circle text-red-300"></i></td>
                         </tr>
 
-                        <tr class="hover:bg-gray-50/50 transition-colors">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="-" data-status="Draft">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-gray-400">#DRAFT-9921</p>
                                 <p class="text-[10px] text-gray-400">01 Mar 2026</p>
                             </td>
                             <td class="px-6 py-5 italic text-gray-400 underline">Rencana Program Induk LPTK Berkelanjutan</td>
-                            <td class="px-6 py-5">-</td>
-                            <td class="px-6 py-5"><span class="badge st-draft">Draft</span></td>
+                            <td class="px-6 py-5 col-skema">-</td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-draft">Draft</span></td>
                             <td class="px-6 py-5 text-center">
                                 <button class="text-orange-600 hover:bg-orange-50 p-2 rounded-full transition-colors"><i class="fas fa-edit"></i></button>
                                 <button class="text-red-400 hover:bg-red-50 p-2 rounded-full transition-colors"><i class="fas fa-trash-alt"></i></button>
@@ -197,7 +209,7 @@
             </div>
             
             <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
-                <p class="text-[10px] text-gray-500 font-bold uppercase">Menampilkan 8 Data Proposal Institusi</p>
+                <p id="showing-text" class="text-[10px] text-gray-500 font-bold uppercase">Menampilkan 8 Data Proposal Institusi</p>
                 <div class="flex gap-2">
                     <button class="px-3 py-1 text-xs border border-gray-300 rounded bg-white text-gray-400 cursor-not-allowed">Sebelumnya</button>
                     <button class="px-3 py-1 text-xs border border-blue-600 rounded bg-blue-600 text-white font-bold">1</button>
@@ -212,19 +224,6 @@
             <div>
                 <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Kementrian Pendidikan Tinggi, Sains, dan Teknologi</h5>
                 <p class="text-sm leading-relaxed">Gedung D Lantai 13, Jl. Jenderal Sudirman Senayan, Jakarta Pusat, Indonesia 10270</p>
-            </div>
-            <div>
-                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Layanan</h5>
-                <ul class="text-sm space-y-2">
-                    <li><a href="#" class="hover:text-blue-300">Cara Pendaftaran</a></li>
-                    <li><a href="#" class="hover:text-blue-300">Download Panduan</a></li>
-                    <li><a href="#" class="hover:text-blue-300">FAQ</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Kontak</h5>
-                <p class="text-sm mb-2 hover:cursor-pointer">WhatsApp: 082149172262</p>
-                <p class="text-sm mb-2">Helpdesk: revitalize@kemdiktisaintek.go.id</p>
             </div>
             <div>
                 <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase text-left lg:text-right">Media Sosial</h5>
@@ -242,17 +241,54 @@
     </footer>
 
     <script>
+        // Dropdown Logic
         const dropdownButton = document.getElementById('dropdown-button');
         const dropdownMenu = document.getElementById('dropdown-menu');
-
         dropdownButton.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
-
         window.addEventListener('click', () => {
             dropdownMenu.classList.remove('show');
         });
+
+        // Filter Logic Real-Time
+        const filterSkema = document.getElementById('filter-skema');
+        const filterStatus = document.getElementById('filter-status');
+        const rows = document.querySelectorAll('.proposal-row');
+        const showingText = document.getElementById('showing-text');
+
+        function applyFilters() {
+            const skemaValue = filterSkema.value;
+            const statusValue = filterStatus.value;
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const rowSkema = row.getAttribute('data-skema');
+                const rowStatus = row.getAttribute('data-status');
+
+                const matchSkema = (skemaValue === 'all' || rowSkema === skemaValue);
+                const matchStatus = (statusValue === 'all' || rowStatus === statusValue);
+
+                if (matchSkema && matchStatus) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            showingText.innerText = `Menampilkan ${visibleCount} Data Proposal Institusi`;
+        }
+
+        function resetFilters() {
+            filterSkema.value = 'all';
+            filterStatus.value = 'all';
+            applyFilters();
+        }
+
+        filterSkema.addEventListener('change', applyFilters);
+        filterStatus.addEventListener('change', applyFilters);
     </script>
 </body>
 </html>
