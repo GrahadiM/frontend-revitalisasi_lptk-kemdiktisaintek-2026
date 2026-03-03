@@ -16,6 +16,10 @@
         /* Custom Profile Styles */
         .info-label { font-size: 10px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }
         .info-value { font-size: 14px; font-weight: 600; color: #1e1b4b; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px; }
+        
+        /* Tab Logic */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
     </style>
 </head>
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
@@ -49,26 +53,25 @@
         </div>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl">
         
         <div class="mb-8">
-            <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Profil Institusi</h1>
+            <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Profile Perguruan Tinggi</h1>
             <p class="text-xs text-gray-500 mt-1 uppercase tracking-wider font-semibold">Manajemen Data LPTK & Kontak PIC</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             
             <div class="lg:col-span-1 space-y-6">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-white rounded-md border border-gray-100 overflow-hidden">
                     <div class="h-24 bg-blue-900"></div>
                     <div class="px-6 pb-6">
                         <div class="relative flex justify-center -mt-12 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=Universitas+Negeri+Jakarta&background=0284c7&color=fff&size=128" 
-                                 class="w-24 h-24 rounded-2xl border-4 border-white shadow-md bg-white">
+                            <img src="https://ui-avatars.com/api/?name=Universitas+Negeri+Jakarta&background=0284c7&color=fff&size=128" class="w-24 h-24 rounded-md border-4 border-white shadow-md bg-white">
                         </div>
                         <div class="text-center">
                             <h2 class="text-lg font-bold text-blue-950">Universitas Negeri Jakarta</h2>
-                            <p class="text-xs font-bold text-blue-600 bg-blue-50 inline-block px-3 py-1 rounded-full mt-2">Akreditasi Unggul</p>
+                            <p class="border border-blue-600 text-xs font-bold text-blue-600 bg-blue-50 inline-block px-3 py-1 rounded-full mt-2">Akreditasi Unggul</p>
                         </div>
                         <div class="mt-8 space-y-4">
                             <div class="flex items-center gap-3 text-gray-600">
@@ -81,70 +84,217 @@
                             </div>
                             <div class="flex items-center gap-3 text-gray-600">
                                 <i class="fas fa-globe w-5 text-gray-400"></i>
-                                <a href="#" class="text-xs font-semibold text-blue-600 hover:underline">www.unj.ac.id</a>
+                                <a href="https://unj.ac.id" target="_blank" class="text-xs font-semibold text-blue-600 hover:underline">www.unj.ac.id</a>
                             </div>
                         </div>
-                        <button class="w-full mt-8 bg-gray-900 text-white text-xs font-bold py-3 rounded-lg hover:bg-gray-800 transition-all">
+                        <button class="w-full mt-8 border-2 border-blue-600 bg-blue-600 text-white font-bold py-3 rounded-md text-xs hover:bg-white hover:text-blue-600 transition-all">
                             <i class="fas fa-camera mr-2"></i> Ubah Logo PT
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-2 space-y-6">
+            <div class="lg:col-span-3 space-y-6">
                 <div class="flex gap-6 border-b border-gray-200 text-sm font-bold mb-2">
-                    <button class="text-blue-600 border-b-2 border-blue-600 pb-3">Informasi Umum</button>
-                    <button class="text-gray-400 hover:text-gray-600 pb-3 transition-colors">Data PIC</button>
-                    <button class="text-gray-400 hover:text-gray-600 pb-3 transition-colors">Keamanan Akun</button>
+                    <button onclick="openTab(event, 'info-umum')" class="tab-link text-blue-600 border-b-2 border-blue-600 pb-3">Informasi Umum</button>
+                    <button onclick="openTab(event, 'data-pic')" class="tab-link text-gray-400 hover:text-gray-600 pb-3 transition-colors">Data PIC</button>
+                    <button onclick="openTab(event, 'update-password')" class="tab-link text-gray-400 hover:text-gray-600 pb-3 transition-colors">Keamanan Akun</button>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                        <div class="flex flex-col">
-                            <label class="info-label mb-1">Nama Resmi Perguruan Tinggi</label>
-                            <p class="info-value">Universitas Negeri Jakarta</p>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="info-label mb-1">NPSN</label>
-                            <p class="info-value">20101234</p>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="info-label mb-1">Nama PIC (Rektor/Wakil Rektor)</label>
-                            <p class="info-value">Prof. Dr. Ahmad Subarjo</p>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="info-label mb-1">Jabatan PIC</label>
-                            <p class="info-value">Wakil Rektor Bidang Akademik</p>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="info-label mb-1">Email Resmi Institusi</label>
-                            <p class="info-value">humas@unj.ac.id</p>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="info-label mb-1">Nomor Telepon Kantor</label>
-                            <p class="info-value">(021) 4894909</p>
-                        </div>
-                        <div class="md:col-span-2 flex flex-col">
-                            <label class="info-label mb-1">Alamat Kantor Pusat</label>
-                            <p class="info-value">Jl. Rawamangun Muka, RT.11/RW.14, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur</p>
+                <div id="info-umum" class="tab-content">
+                    <div class="bg-red-50 border border-red-100 rounded-md p-4 flex gap-4 mb-2">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
+                            <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
                         </div>
                     </div>
 
-                    <div class="mt-10 flex flex-wrap gap-3">
-                        <button class="bg-blue-600 text-white px-6 py-2.5 rounded-md text-xs font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all" onclick="window.location.href='update-profile.html'">
-                            <i class="fas fa-edit mr-2"></i> Perbarui Data Profil
-                        </button>
-                        <button class="bg-white text-gray-600 border border-gray-200 px-6 py-2.5 rounded-md text-xs font-bold hover:bg-gray-50 transition-all">
-                            Unduh Sertifikat Akreditasi
-                        </button>
+                    <div class="bg-amber-50 border border-amber-100 rounded-md p-4 flex gap-4 mb-2">
+                        <i class="fas fa-exclamation-circle text-amber-500 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
+                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Perubahan pada **Nama Perguruan Tinggi** dan **NPSN** memerlukan verifikasi manual oleh Admin Pusat. Silakan hubungi Helpdesk jika terdapat kesalahan data pokok.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-md border border-gray-100 p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Nama Resmi Perguruan Tinggi</label>
+                                <p class="info-value">Universitas Negeri Jakarta</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">NPSN</label>
+                                <p class="info-value">20101234</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Nama PIC (Rektor/Wakil Rektor)</label>
+                                <p class="info-value">Prof. Dr. Ahmad Subarjo</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Jabatan PIC</label>
+                                <p class="info-value">Wakil Rektor Bidang Akademik</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Email Resmi Institusi</label>
+                                <p class="info-value">humas@unj.ac.id</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Nomor Telepon Kantor</label>
+                                <p class="info-value">(021) 4894909</p>
+                            </div>
+                            <div class="md:col-span-2 flex flex-col">
+                                <label class="info-label mb-1">Alamat Kantor Pusat</label>
+                                <p class="info-value">Jl. Rawamangun Muka, RT.11/RW.14, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <button class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
+                                <i class="fas fa-pencil-alt mr-2"></i> Perbarui Data Profil
+                            </button>
+                            <button class="w-full md:w-auto border-2 border-blue-600 bg-white text-blue-600 px-6 py-3 rounded-md text-xs font-bold hover:bg-blue-600 hover:text-white transition-all">
+                                <i class="fas fa-download mr-2"></i>
+                                Unduh Sertifikat Akreditasi
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-amber-50 border border-amber-100 rounded-lg p-4 flex gap-4">
-                    <i class="fas fa-exclamation-circle text-amber-500 mt-1"></i>
-                    <div>
-                        <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
-                        <p class="text-xs text-amber-700 leading-relaxed mt-1">Perubahan pada **Nama Perguruan Tinggi** dan **NPSN** memerlukan verifikasi manual oleh Admin Pusat. Silakan hubungi Helpdesk jika terdapat kesalahan data pokok.</p>
+                <div id="data-pic" class="tab-content active">
+                    <div class="bg-red-50 border border-red-100 rounded-md p-4 flex gap-4 mb-2">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
+                            <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-100 rounded-md p-4 flex gap-4 mb-2">
+                        <i class="fas fa-exclamation-circle text-amber-500 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
+                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Pastikan data PIC adalah pejabat yang berwenang untuk validasi data hibah.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-md border border-gray-100 p-8">
+                        <div class="space-y-8">
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h3 class="text-sm font-bold text-gray-800 mb-4">Person In Charge (PIC) Utama</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                    <div class="flex flex-col">
+                                        <label class="info-label">Nama Lengkap</label>
+                                        <p class="info-value">Prof. Dr. Ahmad Subarjo</p>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <label class="info-label">Jabatan</label>
+                                        <p class="info-value">Wakil Rektor Bidang Akademik</p>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <label class="info-label">NIP / NIDN</label>
+                                        <p class="info-value">197508122001121002</p>
+                                    </div>
+                                    <!-- <div class="flex flex-col">
+                                        <label class="info-label">Email PIC</label>
+                                        <p class="info-value">a.subarjo@unj.ac.id</p>
+                                    </div> -->
+                                    <div class="flex flex-col">
+                                        <label class="info-label">Nomor WhatsApp</label>
+                                        <p class="info-value">0812-3456-7890</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-l-4 border-emerald-500 pl-4">
+                                <h3 class="text-sm font-bold text-gray-800 mb-4">Staf Admin / Operator LPTK</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                    <div class="flex flex-col">
+                                        <label class="info-label">Nama Operator</label>
+                                        <p class="info-value">Budi Santoso, S.Kom</p>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <label class="info-label">Kontak Operator</label>
+                                        <p class="info-value">+62 857-1122-3344</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <button class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
+                                <i class="fas fa-user-edit mr-2"></i> Perbarui Data PIC
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-md border border-gray-100 p-8">
+                        <div class="space-y-8">
+                            <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Kontak Personal In Charge (PIC)</h3>
+                            <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                <div class="flex flex-col">
+                                    <label class="info-label mb-1">Nama Lengkap</label>
+                                    <input type="text" value="Prof. Dr. Ahmad Subarjo" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="info-label mb-1">Jabatan</label>
+                                    <input type="text" value="Wakil Rektor Bidang Akademik" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="info-label mb-1">NIP / NIDN</label>
+                                    <input type="text" value="197508122001121002" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                                </div>
+                                <!-- <div class="flex flex-col">
+                                    <label class="info-label mb-1">Email</label>
+                                    <input type="email" value="a.subarjo@unj.ac.id" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                                </div> -->
+                                <div class="flex flex-col">
+                                    <label class="info-label mb-1">Nomor WhatsApp Aktif</label>
+                                    <input type="tel" value="081234567890" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                                </div>
+
+                                <div class="md:col-span-2 mt-4 flex flex-wrap gap-2">
+                                    <button type="submit" class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
+                                        <i class="fas fa-user-check mr-2"></i> Simpan Perubahan
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="update-password" class="tab-content">
+                    <div class="bg-red-50 border border-red-100 rounded-md p-4 flex gap-4 mb-2">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
+                            <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-md border border-gray-100 p-8">
+                        <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Ganti Kata Sandi</h3>
+                        <form class="space-y-6 max-w-full">
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Kata Sandi Saat Ini</label>
+                                <input type="password" placeholder="••••••••" class="w-full bg-gray-50 border border-gray-200 rounded-md p-2.5 text-sm outline-none focus:border-blue-500">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Kata Sandi Baru</label>
+                                <input type="password" placeholder="••••••••" class="w-full bg-gray-50 border border-gray-200 rounded-md p-2.5 text-sm outline-none focus:border-blue-500">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Konfirmasi Kata Sandi Baru</label>
+                                <input type="password" placeholder="••••••••" class="w-full bg-gray-50 border border-gray-200 rounded-md p-2.5 text-sm outline-none focus:border-blue-500">
+                            </div>                            
+
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <button type="submit" class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
+                                    <i class="fas fa-key mr-2"></i> Simpan Perubahan
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -199,6 +349,23 @@
         window.addEventListener('click', () => {
             dropdownMenu.classList.remove('show');
         });
+
+        // Tab Logic
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("text-blue-600", "border-b-2", "border-blue-600");
+                tablinks[i].classList.add("text-gray-400");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("text-blue-600", "border-b-2", "border-blue-600");
+            evt.currentTarget.classList.remove("text-gray-400");
+        }
     </script>
 </body>
 </html>
