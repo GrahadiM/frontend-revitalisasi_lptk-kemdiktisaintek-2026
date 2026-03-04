@@ -32,13 +32,13 @@
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
 
     <header class="bg-white border-b sticky top-0 z-50 px-4 md:px-12 py-3 flex flex-wrap justify-between items-center gap-4">
-        <a href="index.html" class="flex items-center space-x-2">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK" class="h-16 w-auto">
+        <a href="http://revitalisasilptk.kemdiktisaintek.go.id" class="flex items-center space-x-2">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto" loading="lazy">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK Berdampak" class="h-16 w-auto" loading="lazy">
         </a>
         
         <div class="relative inline-block text-left" id="user-dropdown-container">
-            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none border border-transparent focus:border-gray-200">
+            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none">
                 <div class="text-right hidden md:block">
                     <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
                     <p class="text-[10px] font-semibold text-gray-500">Perguruan Tinggi Negeri</p>
@@ -50,11 +50,30 @@
                     </div>
                 </div>
             </button>
+
             <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden">
+                <div class="p-4 border-b border-gray-50 bg-gray-50/50 md:hidden">
+                    <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
+                    <p class="text-[10px] text-gray-500">Perguruan Tinggi Negeri</p>
+                </div>
                 <div class="py-1">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-home w-5 mr-2"></i> Dashboard</a>
+                    
+                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-home w-5 mr-2"></i> Dashboard
+                    </a>
+                    <a href="profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-user-circle w-5 mr-2"></i> Profile Kampus
+                    </a>
+                    <a href="riwayat.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-file-alt w-5 mr-2"></i> Riwayat Proposal
+                    </a>
+                    <a href="update-profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-cog w-5 mr-2"></i> Pengaturan
+                    </a>
                     <hr class="my-1 border-gray-100">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-semibold"><i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar</a>
+                    <a href="login.html" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors font-semibold">
+                        <i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar
+                    </a>
                 </div>
             </div>
         </div>
@@ -67,23 +86,22 @@
                 <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Riwayat Pengajuan Proposal</h1>
                 <p class="text-xs text-gray-500 mt-1 uppercase tracking-wider font-semibold">Monitoring Evaluasi & Tahapan Seleksi 2026</p>
             </div>
-            <button class="bg-blue-600 text-white px-5 py-2.5 rounded-md text-sm font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all flex items-center gap-2">
+            <button onclick="window.location.href = 'index.html'" class="border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md font-bold text-xs hover:bg-white hover:text-blue-600 transition-all flex items-center gap-2">
                 <i class="fas fa-plus text-xs"></i> Ajukan Proposal Baru
             </button>
         </div>
 
         <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm mb-6 flex flex-wrap gap-4 items-center">
             <div class="flex items-center gap-2">
-                <i class="fas fa-filter text-blue-600 text-sm"></i>
+                <!-- <i class="fas fa-filter text-blue-600 text-sm"></i> -->
                 <span class="text-xs font-bold text-gray-600 uppercase">Filter:</span>
             </div>
             <select id="filter-skema" class="text-xs border border-gray-200 rounded-md px-3 py-2 outline-none focus:border-blue-500 bg-gray-50">
                 <option value="all">Semua Skema</option>
-                <option value="Inovasi Digital">Inovasi Digital</option>
-                <option value="Pengabdian">Pengabdian</option>
-                <option value="Sarpras">Sarpras</option>
-                <option value="SDM">SDM</option>
-                <option value="Kurikulum">Kurikulum</option>
+                <option value="Program 1">Program 1</option>
+                <option value="Program 2">Program 2</option>
+                <option value="Program 3">Program 3</option>
+                <option value="Program 4">Program 4</option>
             </select>
             <select id="filter-status" class="text-xs border border-gray-200 rounded-md px-3 py-2 outline-none focus:border-blue-500 bg-gray-50">
                 <option value="all">Semua Status</option>
@@ -96,7 +114,7 @@
                 <option value="Laporan Kegiatan">Laporan Kegiatan</option>
                 <option value="Laporan Akhir">Laporan Akhir</option>
             </select>
-            <button onclick="resetFilters()" class="text-[10px] font-bold text-red-500 hover:underline ml-auto">Reset Filter</button>
+            <button onclick="resetFilters()" class="border border-red-600 bg-red-500 text-xs text-white font-bold px-10 py-2 rounded-md hover:bg-white hover:text-red-600 transition-all ml-auto">Reset Filter</button>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
@@ -113,94 +131,123 @@
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Inovasi Digital" data-status="Laporan Akhir">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 1" data-status="Laporan Akhir">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-001</p>
                                 <p class="text-[10px] text-gray-400">05 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Digitalisasi Media Pembelajaran Berbasis AI</td>
-                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-purple-50 text-purple-600 px-2 py-1 rounded">Inovasi Digital</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 1</span></td>
                             <td class="px-6 py-5 col-status"><span class="badge st-akhir">Laporan Akhir</span></td>
-                            <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs"><i class="fas fa-file-alt mr-1"></i> Detail</button></td>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
+                            </td>
                         </tr>
 
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Pengabdian" data-status="Laporan Kegiatan">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 2" data-status="Laporan Kegiatan">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-002</p>
                                 <p class="text-[10px] text-gray-400">10 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Peningkatan Kompetensi Guru di Wilayah 3T</td>
-                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Pengabdian</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 2</span></td>
                             <td class="px-6 py-5 col-status"><span class="badge st-laporan">Laporan Kegiatan</span></td>
-                            <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs"><i class="fas fa-upload mr-1"></i> Upload</button></td>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
+                            </td>
                         </tr>
 
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Sarpras" data-status="Lolos Substansi">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 3" data-status="Lolos Substansi">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-003</p>
                                 <p class="text-[10px] text-gray-400">15 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Revitalisasi Lab Microteaching Standar Internasional</td>
-                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Sarpras</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 3</span></td>
                             <td class="px-6 py-5 col-status"><span class="badge st-substansi-pass">Lolos Substansi</span></td>
-                            <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs"><i class="fas fa-eye"></i></button></td>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
+                            </td>
                         </tr>
 
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="SDM" data-status="Lolos Administrasi">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 4" data-status="Lolos Administrasi">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-004</p>
                                 <p class="text-[10px] text-gray-400">20 Jan 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Workshop Penulisan Jurnal Bereputasi bagi Dosen LPTK</td>
-                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">SDM</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 4</span></td>
                             <td class="px-6 py-5 col-status"><span class="badge st-admin-pass">Lolos Administrasi</span></td>
-                            <td class="px-6 py-5 text-center"><button class="text-blue-600 hover:underline font-bold text-xs">Pantau</button></td>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
+                            </td>
                         </tr>
 
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Kurikulum" data-status="Proses Review">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 1" data-status="Proses Review">
                             <td class="px-6 py-5">
                                 <p class="font-bold text-blue-950">#PROP-2026-005</p>
                                 <p class="text-[10px] text-gray-400">01 Feb 2026</p>
                             </td>
                             <td class="px-6 py-5 font-semibold text-gray-700">Pengembangan Kurikulum OBE pada Prodi Kependidikan</td>
-                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded">Kurikulum</span></td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 1</span></td>
                             <td class="px-6 py-5 col-status"><span class="badge st-proses">Proses Review</span></td>
-                            <td class="px-6 py-5 text-center"><i class="fas fa-spinner fa-spin text-blue-400"></i></td>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
+                            </td>
                         </tr>
 
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Lainnya" data-status="Tidak Lolos Substansi">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 2" data-status="Tidak Lolos Substansi">
                             <td class="px-6 py-5">
-                                <p class="font-bold text-blue-950">#PROP-2026-006</p>
-                                <p class="text-[10px] text-gray-400">10 Feb 2026</p>
+                                <p class="font-bold text-red-600">#PROP-2026-006</p>
+                                <p class="text-[10px] text-gray-600">10 Feb 2026</p>
                             </td>
-                            <td class="px-6 py-5 font-semibold text-gray-400">Studi Banding LPTK ke Finlandia</td>
-                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-gray-50 text-gray-400 px-2 py-1 rounded">Lainnya</span></td>
+                            <td class="px-6 py-5 font-semibold text-red-600">Studi Banding LPTK ke Finlandia</td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 2</span></td>
                             <td class="px-6 py-5 col-status"><span class="badge st-substansi-fail">Tidak Lolos Substansi</span></td>
-                            <td class="px-6 py-5 text-center"><button class="text-red-600 hover:underline font-bold text-xs">Catatan</button></td>
-                        </tr>
-
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Sarpras" data-status="Tidak Lolos Administrasi">
-                            <td class="px-6 py-5">
-                                <p class="font-bold text-blue-950">#PROP-2026-007</p>
-                                <p class="text-[10px] text-gray-400">15 Feb 2026</p>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
                             </td>
-                            <td class="px-6 py-5 font-semibold text-gray-400">Pengadaan Bus Kampus Ramah Lingkungan</td>
-                            <td class="px-6 py-5 col-skema"><span class="text-[10px] bg-gray-50 text-gray-400 px-2 py-1 rounded">Sarpras</span></td>
-                            <td class="px-6 py-5 col-status"><span class="badge st-admin-fail">Tidak Lolos Administrasi</span></td>
-                            <td class="px-6 py-5 text-center"><i class="fas fa-times-circle text-red-300"></i></td>
                         </tr>
 
-                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="-" data-status="Draft">
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 3" data-status="Tidak Lolos Administrasi">
                             <td class="px-6 py-5">
-                                <p class="font-bold text-gray-400">#DRAFT-9921</p>
+                                <p class="font-bold text-red-600">#PROP-2026-007</p>
+                                <p class="text-[10px] text-gray-600">15 Feb 2026</p>
+                            </td>
+                            <td class="px-6 py-5 font-semibold text-red-600">Pengadaan Bus Kampus Ramah Lingkungan</td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 3</span></td>
+                            <td class="px-6 py-5 col-status"><span class="badge st-admin-fail">Tidak Lolos Administrasi</span></td>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr class="proposal-row hover:bg-gray-50/50 transition-colors" data-skema="Program 4" data-status="Draft">
+                            <td class="px-6 py-5">
+                                <p class="font-bold text-gray-400">#DRAFT-2026-08</p>
                                 <p class="text-[10px] text-gray-400">01 Mar 2026</p>
                             </td>
-                            <td class="px-6 py-5 italic text-gray-400 underline">Rencana Program Induk LPTK Berkelanjutan</td>
-                            <td class="px-6 py-5 col-skema">-</td>
+                            <td class="px-6 py-5 font-semibold text-gray-400">Rencana Program Induk LPTK Berkelanjutan</td>
+                            <td class="px-6 py-5 col-skema"><span class="border border-blue-600 text-[10px] bg-blue-50 text-blue-600 font-bold px-4 py-1 rounded-full">Program 4</span></td>
                             <td class="px-6 py-5 col-status"><span class="badge st-draft">Draft</span></td>
-                            <td class="px-6 py-5 text-center">
-                                <button class="text-orange-600 hover:bg-orange-50 p-2 rounded-full transition-colors"><i class="fas fa-edit"></i></button>
-                                <button class="text-red-400 hover:bg-red-50 p-2 rounded-full transition-colors"><i class="fas fa-trash-alt"></i></button>
+                            <td class="px-6 py-5 text-center gap-1 flex justify-center items-center">
+                                <button onclick="openProposal('#PROP-2026-001')" class="border-2 border-green-600 bg-green-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-green-600 transition-all"><i class="fas fa-eye"></i></button>
+                                <button class="border-2 border-blue-600 bg-blue-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-blue-600 transition-all"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="border-2 border-red-600 bg-red-600 text-white text-[10px] py-1 px-2 rounded-md hover:bg-white hover:text-red-600 transition-all"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
 
@@ -256,15 +303,21 @@
     </footer>
 
     <script>
-        // Dropdown Logic
+        // Fitur Dropdown Logic 
         const dropdownButton = document.getElementById('dropdown-button');
         const dropdownMenu = document.getElementById('dropdown-menu');
+
+        // Menampilkan dropdown saat tombol diklik
         dropdownButton.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
-        window.addEventListener('click', () => {
-            dropdownMenu.classList.remove('show');
+
+        // Menutup dropdown saat klik di luar menu
+        window.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
         });
 
         // Filter Logic Real-Time
@@ -304,6 +357,10 @@
 
         filterSkema.addEventListener('change', applyFilters);
         filterStatus.addEventListener('change', applyFilters);
+        
+        function openProposal() {
+            
+        }
     </script>
 </body>
 </html>

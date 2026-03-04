@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Administrasi Proposal - Revitalisasi LPTK 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
+        .dropdown-menu { display: none; opacity: 0; transform: translateY(-10px); transition: all 0.2s ease; }
+        .dropdown-menu.show { display: block; opacity: 1; transform: translateY(0); }
+        
+        .badge { font-size: 10px; font-weight: 700; padding: 5px 12px; border-radius: 9999px; text-transform: uppercase; border: 1px solid; display: inline-block; }
+        .st-admin-pass { background-color: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+        
+        .info-label { font-size: 10px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+        .info-value { font-size: 14px; font-weight: 600; color: #1f2937; }
+        .card-header { background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 12px 20px; }
+    </style>
+</head>
+<body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
+
+    <header class="bg-white border-b sticky top-0 z-50 px-4 md:px-12 py-3 flex flex-wrap justify-between items-center gap-4">
+        <a href="#" class="flex items-center space-x-2">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto" loading="lazy">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK" class="h-16 w-auto" loading="lazy">
+        </a>
+        
+        <div class="relative inline-block text-left" id="user-dropdown-container">
+            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none">
+                <div class="text-right hidden md:block">
+                    <p class="text-xs font-bold text-blue-900">IKIP Siliwangi</p>
+                    <p class="text-[10px] font-semibold text-gray-500">Perguruan Tinggi Swasta</p>
+                </div>
+                <div class="relative">
+                    <img src="https://ui-avatars.com/api/?name=IKIP+Siliwangi&background=0284c7&color=fff" alt="User" class="w-10 h-10 rounded-full border-2 border-white shadow-sm">
+                </div>
+            </button>
+            <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden">
+                <div class="py-1">
+                    <a href="riwayat.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-file-alt w-5 mr-2"></i> Riwayat Proposal
+                    </a>
+                    <hr class="my-1 border-gray-100">
+                    <a href="#" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-semibold">
+                        <i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Detail Pengajuan Proposal</h1>
+                <p class="text-xs text-gray-500 mt-1 font-semibold uppercase tracking-wider">ID: #PROP-2025-IKIP-01</p>
+            </div>
+            <div class="flex gap-2">
+                <button class="bg-amber-500 text-white px-5 py-2.5 rounded-lg font-bold text-xs hover:bg-amber-600 transition-all flex items-center gap-2">
+                    <i class="fas fa-edit"></i> Ubah Status
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="card-header">
+                        <h3 class="font-bold text-blue-900 text-xs uppercase flex items-center gap-2">
+                            <i class="fas fa-university text-blue-600"></i> Informasi Perguruan Tinggi
+                        </h3>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-8">
+                        <div>
+                            <p class="info-label">Nama PT</p>
+                            <p class="info-value text-blue-700">Institut Keguruan Dan Ilmu Pendidikan Siliwangi</p>
+                        </div>
+                        <div>
+                            <p class="info-label">Waktu Dibuat</p>
+                            <p class="info-value">2025-06-24 09:19:19</p>
+                        </div>
+                        <div class="md:col-span-2 grid grid-cols-3 gap-4 p-4 bg-gray-50 rounded-lg">
+                            <div>
+                                <p class="info-label">Bank</p>
+                                <p class="info-value">BNI</p>
+                            </div>
+                            <div>
+                                <p class="info-label">No. Rekening</p>
+                                <p class="info-value">1186385682</p>
+                            </div>
+                            <div>
+                                <p class="info-label">NPWP</p>
+                                <p class="info-value">439951518421000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="card-header">
+                        <h3 class="font-bold text-blue-900 text-xs uppercase flex items-center gap-2">
+                            <i class="fas fa-database text-blue-600"></i> Data LPTK
+                        </h3>
+                    </div>
+                    <div class="p-6 grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="col-span-2">
+                            <p class="info-label">Nama LPTK</p>
+                            <p class="info-value">Institut Keguruan Dan Ilmu Pendidikan Siliwangi</p>
+                        </div>
+                        <div>
+                            <p class="info-label">Singkatan</p>
+                            <p class="info-value font-bold">IKIP Siliwangi</p>
+                        </div>
+                        <div>
+                            <p class="info-label">Provinsi</p>
+                            <p class="info-value">Jawa Barat</p>
+                        </div>
+                        <div>
+                            <p class="info-label">Kab/Kota</p>
+                            <p class="info-value">Kota Cimahi</p>
+                        </div>
+                        <div>
+                            <p class="info-label">Akreditasi Institusi</p>
+                            <p class="info-value">B (Nov-22)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="card-header">
+                        <h3 class="font-bold text-blue-900 text-xs uppercase flex items-center gap-2">
+                            <i class="fas fa-user-tie text-blue-600"></i> Data PIC (Person In Charge)
+                        </h3>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="info-label">Nama Lengkap</p>
+                            <p class="info-value">Dr. Asep Samsudin, M.Pd</p>
+                        </div>
+                        <div>
+                            <p class="info-label">Jabatan</p>
+                            <p class="info-value">Koordinator PPG IKIP Siliwangi</p>
+                        </div>
+                        <div>
+                            <p class="info-label">Email</p>
+                            <p class="info-value">asepsam234@ikipsiliwangi.ac.id</p>
+                        </div>
+                        <div>
+                            <p class="info-label">No. HP / WhatsApp</p>
+                            <p class="info-value">081319949949</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="card-header bg-green-50">
+                        <h3 class="font-bold text-green-900 text-xs uppercase">Status Administrasi</h3>
+                    </div>
+                    <div class="p-5 text-center">
+                        <span class="badge st-admin-pass mb-4 px-6 py-2 text-xs">Lolos Tahap Administrasi</span>
+                        <div class="text-left mt-4 border-t pt-4">
+                            <p class="info-label">Keterangan Perbaikan</p>
+                            <p class="text-sm text-gray-400 italic">- Tidak ada perbaikan -</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="card-header flex justify-between items-center">
+                        <h3 class="font-bold text-blue-900 text-xs uppercase">Evaluator</h3>
+                        <button class="text-[10px] bg-blue-100 text-blue-700 px-2 py-1 rounded font-bold hover:bg-blue-200">Plotting</button>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center text-white text-xs font-bold">1</div>
+                            <div>
+                                <p class="info-label">Evaluator 1</p>
+                                <p class="text-sm font-bold text-gray-700">Agusti Thamrin</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center text-white text-xs font-bold">2</div>
+                            <div>
+                                <p class="info-label">Evaluator 2</p>
+                                <p class="text-sm font-bold text-gray-700">Widya Karmila Sari Achmad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="card-header">
+                        <h3 class="font-bold text-blue-900 text-xs uppercase">Dokumen Terkait</h3>
+                    </div>
+                    <div class="divide-y divide-gray-100">
+                        <div class="p-3 hover:bg-gray-50 flex justify-between items-center">
+                            <span class="text-xs font-medium text-gray-600">Salinan Rekening</span>
+                            <a href="#" class="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline">
+                                📄 Lihat Dokumen
+                            </a>
+                        </div>
+                        <div class="p-3 hover:bg-gray-50 flex justify-between items-center">
+                            <span class="text-xs font-medium text-gray-600">NPWP Institusi</span>
+                            <a href="#" class="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline">
+                                📄 Lihat Dokumen
+                            </a>
+                        </div>
+                        <div class="p-3 hover:bg-gray-50 flex justify-between items-center">
+                            <span class="text-xs font-medium text-gray-600">Komitmen Dana</span>
+                            <a href="#" class="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline">
+                                📄 Lihat Dokumen
+                            </a>
+                        </div>
+                        <div class="p-3 hover:bg-gray-50 flex justify-between items-center">
+                            <span class="text-xs font-medium text-gray-600">Surat Pernyataan</span>
+                            <a href="#" class="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline">
+                                📄 Lihat Dokumen
+                            </a>
+                        </div>
+                        <div class="p-3 hover:bg-gray-50 flex justify-between items-center">
+                            <span class="text-xs font-medium text-gray-600">File Proposal</span>
+                            <a href="#" class="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline">
+                                📄 Lihat Dokumen
+                            </a>
+                        </div>
+                        <div class="p-3 hover:bg-gray-50 flex justify-between items-center">
+                            <span class="text-xs font-medium text-gray-600">Dokumen Anggaran</span>
+                            <a href="#" class="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline">
+                                📄 Lihat Dokumen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-blue-950 text-white border-t border-gray-500 mt-12 py-10 px-4 md:px-12">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Kementrian Pendidikan Tinggi, Sains, dan Teknologi</h5>
+                <p class="text-sm leading-relaxed">Gedung D Lantai 13, Jl. Jenderal Sudirman Senayan, Jakarta Pusat, Indonesia 10270</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Panduan</h5>
+                <ul class="text-sm space-y-2">
+                    <li><a href="#" class="hover:text-blue-300 transition-colors">Cara Pendaftaran</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition-colors">Contoh Proposal</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Hubungi Kami</h5>
+                <p class="text-sm mb-2 hover:cursor-pointer">WhatsApp: 082149172262</p>
+                <p class="text-sm">Senin-Jumat, 09.00-17.00</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase text-left lg:text-right">Ikuti Kami</h5>
+                <div class="flex gap-4 justify-start lg:justify-end text-gray-300">
+                    <a href="#" class="hover:text-white text-2xl transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white text-2xl transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white text-2xl transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 text-xs border-t border-gray-700 pt-8">
+            Kementerian Pendidikan Tinggi, Sains, dan Teknologi © 2026. All Right Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        dropdownButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

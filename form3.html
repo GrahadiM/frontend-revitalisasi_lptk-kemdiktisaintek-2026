@@ -20,13 +20,13 @@
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
 
     <header class="bg-white border-b sticky top-0 z-50 px-4 md:px-12 py-3 flex flex-wrap justify-between items-center gap-4">
-        <a href="index.html" class="flex items-center space-x-2">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK" class="h-16 w-auto">
+        <a href="http://revitalisasilptk.kemdiktisaintek.go.id" class="flex items-center space-x-2">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto" loading="lazy">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK Berdampak" class="h-16 w-auto" loading="lazy">
         </a>
         
         <div class="relative inline-block text-left" id="user-dropdown-container">
-            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none border border-transparent focus:border-gray-200">
+            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none">
                 <div class="text-right hidden md:block">
                     <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
                     <p class="text-[10px] font-semibold text-gray-500">Perguruan Tinggi Negeri</p>
@@ -38,18 +38,46 @@
                     </div>
                 </div>
             </button>
+
             <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden">
+                <div class="p-4 border-b border-gray-50 bg-gray-50/50 md:hidden">
+                    <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
+                    <p class="text-[10px] text-gray-500">Perguruan Tinggi Negeri</p>
+                </div>
                 <div class="py-1">
-                    <a href="index.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-home w-5 mr-2"></i> Dashboard</a>
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-user-circle w-5 mr-2"></i> Profil Kampus</a>
+                    
+                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-home w-5 mr-2"></i> Dashboard
+                    </a>
+                    <a href="profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-user-circle w-5 mr-2"></i> Profile Kampus
+                    </a>
+                    <a href="riwayat.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-file-alt w-5 mr-2"></i> Riwayat Proposal
+                    </a>
+                    <a href="update-profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-cog w-5 mr-2"></i> Pengaturan
+                    </a>
                     <hr class="my-1 border-gray-100">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-semibold"><i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar</a>
+                    <a href="login.html" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors font-semibold">
+                        <i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+        
+        <nav class="flex mb-5 text-gray-500 text-xs" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li><a href="index.html" class="hover:text-blue-600">Detail Program</a></li>
+                <li class="flex items-center text-blue-600 font-semibold">
+                    <i class="fas fa-chevron-right mx-2 text-[10px] text-gray-400"></i>
+                    Pengajuan Proposal - Unggah Berkas
+                </li>
+            </ol>
+        </nav>
         
         <div class="bg-white rounded-md shadow-sm border border-gray-100 overflow-hidden">
             <div class="bg-blue-50 px-6 py-4 border-b border-blue-100 flex justify-between items-center overflow-x-auto">
@@ -74,8 +102,8 @@
                 <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6">
                     <div class="flex items-center">
                         <i class="fas fa-exclamation-triangle text-orange-400 mr-3"></i>
-                        <p class="text-xs text-orange-800 leading-relaxed">
-                            Pastikan semua dokumen menggunakan format <strong>PDF</strong> (kecuali RAB dalam Excel) dengan ukuran maksimal <strong>5MB</strong> per file. Periksa kembali kelengkapan sebelum melakukan submisi final.
+                        <p class="text-xs text-orange-800 leading-relaxed text-justify">
+                            Pastikan semua dokumen menggunakan format <strong>PDF</strong> (kecuali RAB dalam Excel) dengan ukuran maksimal <strong>5MB</strong> - <strong>10MB</strong> per file. Periksa kembali kelengkapan sebelum melakukan submisi final.
                         </p>
                     </div>
                 </div>
@@ -90,7 +118,7 @@
                             <input type="file" class="hidden">
                             <div class="text-center">
                                 <i class="fas fa-cloud-upload-alt text-blue-400 text-xl mb-1"></i>
-                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Klik untuk unggah</span> atau seret file ke sini</p>
+                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Unggah File Proposal</span></p>
                             </div>
                         </label>
                     </div>
@@ -119,7 +147,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                     <div>
                         <h4 class="text-sm font-bold text-blue-950 uppercase tracking-tight">Pakta Integritas</h4>
-                        <p class="text-[10px] text-gray-500">Ditandatangani di atas materai 10.000.</p>
+                        <p class="text-[10px] text-gray-500">Ditandatangani di atas materai Rp.10.000.</p>
                     </div>
                     <div class="md:col-span-2">
                         <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-4 flex items-center justify-center cursor-pointer transition-all">
@@ -135,8 +163,8 @@
                 <div class="mt-12 p-6 bg-blue-950 rounded-md text-white">
                     <div class="flex items-start gap-4">
                         <input type="checkbox" id="confirm" class="mt-1 w-4 h-4 rounded border-gray-300">
-                        <label for="confirm" class="text-xs leading-relaxed text-gray-300">
-                            Saya menyatakan bahwa seluruh data dan dokumen yang diunggah adalah benar dan dapat dipertanggungjawabkan. Saya memahami bahwa ketidaksesuaian data dapat mengakibatkan diskualifikasi pada proses seleksi Revitalisasi LPTK 2026.
+                        <label for="confirm" class="text-xs leading-relaxed text-gray-300 text-justify">
+                            Saya menyatakan bahwa seluruh data dan dokumen yang diunggah adalah benar dan dapat dipertanggungjawabkan. Saya memahami bahwa ketidak sesuaian data dapat mengakibatkan diskualifikasi pada proses seleksi Revitalisasi LPTK <script>document.write(new Date().getFullYear());</script>.
                         </label>
                     </div>
                 </div>
@@ -195,17 +223,21 @@
     </footer>
 
     <script>
-        // Dropdown Logic (KONSISTEN)
+        // Fitur Dropdown Logic 
         const dropdownButton = document.getElementById('dropdown-button');
         const dropdownMenu = document.getElementById('dropdown-menu');
 
+        // Menampilkan dropdown saat tombol diklik
         dropdownButton.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
 
-        window.addEventListener('click', () => {
-            dropdownMenu.classList.remove('show');
+        // Menutup dropdown saat klik di luar menu
+        window.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
         });
     </script>
 </body>

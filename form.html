@@ -20,13 +20,13 @@
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
 
     <header class="bg-white border-b sticky top-0 z-50 px-4 md:px-12 py-3 flex flex-wrap justify-between items-center gap-4">
-        <a href="index.html" class="flex items-center space-x-2">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK" class="h-16 w-auto">
+        <a href="http://revitalisasilptk.kemdiktisaintek.go.id" class="flex items-center space-x-2">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto" loading="lazy">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK Berdampak" class="h-16 w-auto" loading="lazy">
         </a>
         
         <div class="relative inline-block text-left" id="user-dropdown-container">
-            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none border border-transparent focus:border-gray-200">
+            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none">
                 <div class="text-right hidden md:block">
                     <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
                     <p class="text-[10px] font-semibold text-gray-500">Perguruan Tinggi Negeri</p>
@@ -38,12 +38,30 @@
                     </div>
                 </div>
             </button>
+
             <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden">
+                <div class="p-4 border-b border-gray-50 bg-gray-50/50 md:hidden">
+                    <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
+                    <p class="text-[10px] text-gray-500">Perguruan Tinggi Negeri</p>
+                </div>
                 <div class="py-1">
-                    <a href="index.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-home w-5 mr-2"></i> Dashboard</a>
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-user-circle w-5 mr-2"></i> Profil Kampus</a>
+                    
+                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-home w-5 mr-2"></i> Dashboard
+                    </a>
+                    <a href="profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-user-circle w-5 mr-2"></i> Profile Kampus
+                    </a>
+                    <a href="riwayat.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-file-alt w-5 mr-2"></i> Riwayat Proposal
+                    </a>
+                    <a href="update-profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-cog w-5 mr-2"></i> Pengaturan
+                    </a>
                     <hr class="my-1 border-gray-100">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-semibold"><i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar</a>
+                    <a href="login.html" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors font-semibold">
+                        <i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar
+                    </a>
                 </div>
             </div>
         </div>
@@ -56,7 +74,7 @@
                 <li><a href="index.html" class="hover:text-blue-600">Detail Program</a></li>
                 <li class="flex items-center text-blue-600 font-semibold">
                     <i class="fas fa-chevron-right mx-2 text-[10px] text-gray-400"></i>
-                    Pengajuan Proposal
+                    Pengajuan Proposal - Data Identitas
                 </li>
             </ol>
         </nav>
@@ -206,17 +224,21 @@
     </footer>
 
     <script>
-        // Dropdown Logic (Sama)
+        // Fitur Dropdown Logic 
         const dropdownButton = document.getElementById('dropdown-button');
         const dropdownMenu = document.getElementById('dropdown-menu');
 
+        // Menampilkan dropdown saat tombol diklik
         dropdownButton.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
 
-        window.addEventListener('click', () => {
-            dropdownMenu.classList.remove('show');
+        // Menutup dropdown saat klik di luar menu
+        window.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
         });
     </script>
 </body>

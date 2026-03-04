@@ -20,18 +20,21 @@
         /* Tab Logic */
         .tab-content { display: none; }
         .tab-content.active { display: block; }
+
+        /* Form PIC Toggle */
+        #form-pic-container { display: none; }
     </style>
 </head>
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
 
     <header class="bg-white border-b sticky top-0 z-50 px-4 md:px-12 py-3 flex flex-wrap justify-between items-center gap-4">
-        <a href="index.html" class="flex items-center space-x-2">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK" class="h-16 w-auto">
+        <a href="http://revitalisasilptk.kemdiktisaintek.go.id" class="flex items-center space-x-2">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto" loading="lazy">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK Berdampak" class="h-16 w-auto" loading="lazy">
         </a>
         
         <div class="relative inline-block text-left" id="user-dropdown-container">
-            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none border border-transparent focus:border-gray-200">
+            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none">
                 <div class="text-right hidden md:block">
                     <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
                     <p class="text-[10px] font-semibold text-gray-500">Perguruan Tinggi Negeri</p>
@@ -43,11 +46,30 @@
                     </div>
                 </div>
             </button>
+
             <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden">
+                <div class="p-4 border-b border-gray-50 bg-gray-50/50 md:hidden">
+                    <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
+                    <p class="text-[10px] text-gray-500">Perguruan Tinggi Negeri</p>
+                </div>
                 <div class="py-1">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-home w-5 mr-2"></i> Dashboard</a>
+                    
+                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-home w-5 mr-2"></i> Dashboard
+                    </a>
+                    <a href="profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-user-circle w-5 mr-2"></i> Profile Kampus
+                    </a>
+                    <a href="riwayat.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-file-alt w-5 mr-2"></i> Riwayat Proposal
+                    </a>
+                    <a href="update-profile.html" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                        <i class="fas fa-cog w-5 mr-2"></i> Pengaturan
+                    </a>
                     <hr class="my-1 border-gray-100">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-semibold"><i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar</a>
+                    <a href="login.html" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors font-semibold">
+                        <i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar
+                    </a>
                 </div>
             </div>
         </div>
@@ -94,28 +116,35 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-3 space-y-6">
+            <div class="lg:col-span-3 space-y-4">
                 <div class="flex gap-6 border-b border-gray-200 text-sm font-bold mb-2">
                     <button onclick="openTab(event, 'info-umum')" class="tab-link text-blue-600 border-b-2 border-blue-600 pb-3">Informasi Umum</button>
                     <button onclick="openTab(event, 'data-pic')" class="tab-link text-gray-400 hover:text-gray-600 pb-3 transition-colors">Data PIC</button>
                     <button onclick="openTab(event, 'update-password')" class="tab-link text-gray-400 hover:text-gray-600 pb-3 transition-colors">Keamanan Akun</button>
                 </div>
 
-                <div id="info-umum" class="tab-content">
-                    <div class="bg-red-50 border border-red-100 rounded-md p-4 flex gap-4 mb-2">
-                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
-                        <div>
-                            <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
-                            <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                <div id="info-umum" class="tab-content active">
+                
+                    <div id="alert-security" class="bg-red-50 border border-red-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-shield-alt text-red-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
+                                <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                            </div>
                         </div>
+                        <button onclick="dismissAlert('alert-security')" class="text-red-400 hover:text-red-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
-                    <div class="bg-amber-50 border border-amber-100 rounded-md p-4 flex gap-4 mb-2">
-                        <i class="fas fa-exclamation-circle text-amber-500 mt-1"></i>
-                        <div>
-                            <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
-                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Perubahan pada **Nama Perguruan Tinggi** dan **NPSN** memerlukan verifikasi manual oleh Admin Pusat. Silakan hubungi Helpdesk jika terdapat kesalahan data pokok.</p>
+                    <div id="alert-notice" class="bg-amber-50 border border-amber-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-info-circle text-amber-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
+                                <p class="text-xs text-amber-700 leading-relaxed mt-1">Perubahan pada **Nama Perguruan Tinggi** dan **NPSN** memerlukan verifikasi manual oleh Admin Pusat. Silakan hubungi Helpdesk jika terdapat kesalahan data pokok.</p>
+                            </div>
                         </div>
+                        <button onclick="dismissAlert('alert-notice')" class="text-amber-400 hover:text-amber-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
                     <div class="bg-white rounded-md border border-gray-100 p-8">
@@ -150,7 +179,7 @@
                             </div>
                         </div>
                         
-                        <div class="mt-4 flex flex-wrap gap-2">
+                        <!-- <div class="mt-4 flex flex-wrap gap-2">
                             <button class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
                                 <i class="fas fa-pencil-alt mr-2"></i> Perbarui Data Profil
                             </button>
@@ -158,28 +187,46 @@
                                 <i class="fas fa-download mr-2"></i>
                                 Unduh Sertifikat Akreditasi
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
-                <div id="data-pic" class="tab-content active">
-                    <div class="bg-red-50 border border-red-100 rounded-md p-4 flex gap-4 mb-2">
-                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
-                        <div>
-                            <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
-                            <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                <div id="data-pic" class="tab-content">
+                
+                    <div id="alert-security" class="bg-red-50 border border-red-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-shield-alt text-red-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
+                                <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                            </div>
                         </div>
+                        <button onclick="dismissAlert('alert-security')" class="text-red-400 hover:text-red-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
-                    <div class="bg-amber-50 border border-amber-100 rounded-md p-4 flex gap-4 mb-2">
-                        <i class="fas fa-exclamation-circle text-amber-500 mt-1"></i>
-                        <div>
-                            <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
-                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Pastikan data PIC adalah pejabat yang berwenang untuk validasi data hibah.</p>
+                    <div id="alert-notice" class="bg-amber-50 border border-amber-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-info-circle text-amber-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
+                                <p class="text-xs text-amber-700 leading-relaxed mt-1">Pastikan data PIC adalah pejabat yang berwenang untuk validasi data hibah.</p>
+                            </div>
                         </div>
+                        <button onclick="dismissAlert('alert-notice')" class="text-amber-400 hover:text-amber-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
-                    <div class="bg-white rounded-md border border-gray-100 p-8">
+                    <div id="alert-success" class="bg-green-50 border border-green-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-green-800 uppercase">Berhasil!</p>
+                                <p class="text-xs text-green-700 leading-relaxed mt-1">Perubahan data berhasil disimpan.</p>
+                            </div>
+                        </div>
+                        <button onclick="dismissAlert('alert-success')" class="text-green-400 hover:text-green-600 transition-colors"><i class="fas fa-times"></i></button>
+                    </div>
+
+                    <div id="view-pic-container" class="bg-white rounded-md border border-gray-100 p-8">
                         <div class="space-y-8">
                             <div class="border-l-4 border-blue-600 pl-4">
                                 <h3 class="text-sm font-bold text-gray-800 mb-4">Person In Charge (PIC) Utama</h3>
@@ -223,54 +270,81 @@
                         </div>
 
                         <div class="mt-4 flex flex-wrap gap-2">
-                            <button class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
+                            <button onclick="togglePicForm(true)" class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all">
                                 <i class="fas fa-user-edit mr-2"></i> Perbarui Data PIC
                             </button>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-md border border-gray-100 p-8">
-                        <div class="space-y-8">
+                    <div id="form-pic-container" class="bg-white rounded-md border border-gray-100 p-8">
+                        <div class="flex justify-between items-center mb-6">
                             <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Kontak Personal In Charge (PIC)</h3>
-                            <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                                <div class="flex flex-col">
-                                    <label class="info-label mb-1">Nama Lengkap</label>
-                                    <input type="text" value="Prof. Dr. Ahmad Subarjo" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                                </div>
-                                <div class="flex flex-col">
-                                    <label class="info-label mb-1">Jabatan</label>
-                                    <input type="text" value="Wakil Rektor Bidang Akademik" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                                </div>
-                                <div class="flex flex-col">
-                                    <label class="info-label mb-1">NIP / NIDN</label>
-                                    <input type="text" value="197508122001121002" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                                </div>
-                                <!-- <div class="flex flex-col">
-                                    <label class="info-label mb-1">Email</label>
-                                    <input type="email" value="a.subarjo@unj.ac.id" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                                </div> -->
-                                <div class="flex flex-col">
-                                    <label class="info-label mb-1">Nomor WhatsApp Aktif</label>
-                                    <input type="tel" value="081234567890" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                                </div>
-
-                                <div class="md:col-span-2 mt-4 flex flex-wrap gap-2">
-                                    <button type="submit" class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
-                                        <i class="fas fa-user-check mr-2"></i> Simpan Perubahan
-                                    </button>
-                                </div>
-                            </form>
+                            <button onclick="togglePicForm(false)" class="text-gray-400 hover:text-gray-600 text-xs font-bold uppercase tracking-widest"><i class="fas fa-times mr-1"></i> Batal</button>
                         </div>
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Nama Lengkap</label>
+                                <input type="text" value="Prof. Dr. Ahmad Subarjo" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Jabatan</label>
+                                <input type="text" value="Wakil Rektor Bidang Akademik" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">NIP / NIDN</label>
+                                <input type="text" value="197508122001121002" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                            </div>
+                            <!-- <div class="flex flex-col">
+                                <label class="info-label mb-1">Email</label>
+                                <input type="email" value="a.subarjo@unj.ac.id" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                            </div> -->
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Nomor WhatsApp Aktif</label>
+                                <input type="tel" value="081234567890" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
+                            </div>
+
+                            <div class="md:col-span-2 mt-4 flex flex-wrap gap-2">
+                                <button type="submit" class="w-full md:w-auto border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all" onclick="window.location.href='update-profile.html'">
+                                    <i class="fas fa-user-check mr-2"></i> Simpan Perubahan
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <div id="update-password" class="tab-content">
-                    <div class="bg-red-50 border border-red-100 rounded-md p-4 flex gap-4 mb-2">
-                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
-                        <div>
-                            <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
-                            <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                
+                    <div id="alert-security" class="bg-red-50 border border-red-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-shield-alt text-red-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
+                                <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
+                            </div>
                         </div>
+                        <button onclick="dismissAlert('alert-security')" class="text-red-400 hover:text-red-600 transition-colors"><i class="fas fa-times"></i></button>
+                    </div>
+
+                    <div id="alert-notice" class="bg-amber-50 border border-amber-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-info-circle text-amber-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
+                                <p class="text-xs text-amber-700 leading-relaxed mt-1">Pastikan data PIC adalah pejabat yang berwenang untuk validasi data hibah.</p>
+                            </div>
+                        </div>
+                        <button onclick="dismissAlert('alert-notice')" class="text-amber-400 hover:text-amber-600 transition-colors"><i class="fas fa-times"></i></button>
+                    </div>
+
+                    <div id="alert-success" class="bg-green-50 border border-green-100 rounded-md p-4 flex justify-between items-start gap-4 mb-2">
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <p class="text-xs font-bold text-green-800 uppercase">Berhasil!</p>
+                                <p class="text-xs text-green-700 leading-relaxed mt-1">Perubahan data berhasil disimpan.</p>
+                            </div>
+                        </div>
+                        <button onclick="dismissAlert('alert-success')" class="text-green-400 hover:text-green-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
                     <div class="bg-white rounded-md border border-gray-100 p-8">
@@ -339,16 +413,27 @@
     </footer>
 
     <script>
-        // Dropdown Logic (KONSISTEN)
+        // Fitur Dropdown Logic 
         const dropdownButton = document.getElementById('dropdown-button');
         const dropdownMenu = document.getElementById('dropdown-menu');
+
+        // Menampilkan dropdown saat tombol diklik
         dropdownButton.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
-        window.addEventListener('click', () => {
-            dropdownMenu.classList.remove('show');
+
+        // Menutup dropdown saat klik di luar menu
+        window.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
         });
+
+        // Dismiss Alerts (Fitur X)
+        function dismissAlert(alertId) {
+            document.getElementById(alertId).style.display = 'none';
+        }
 
         // Tab Logic
         function openTab(evt, tabName) {
@@ -365,6 +450,23 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("text-blue-600", "border-b-2", "border-blue-600");
             evt.currentTarget.classList.remove("text-gray-400");
+
+            // Reset Form PIC state saat pindah tab
+            if(tabName !== 'data-pic') togglePicForm(false);
+        }
+
+        // Toggle Form PIC Logic
+        function togglePicForm(show) {
+            const viewCard = document.getElementById('view-pic-container');
+            const formCard = document.getElementById('form-pic-container');
+            
+            if (show) {
+                viewCard.style.display = 'none';
+                formCard.style.display = 'block';
+            } else {
+                viewCard.style.display = 'block';
+                formCard.style.display = 'none';
+            }
         }
     </script>
 </body>
