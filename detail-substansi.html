@@ -290,6 +290,19 @@
                 dropdownMenu.classList.remove('show');
             }
         });
+
+        // Menutup dropdown saat klik di luar menu
+        window.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+
+        // Mengambil parameter 'id'
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get('id');
+        console.log('id = ' + id);
+        document.getElementById('proposal_id').textContent = id ? id : 'N/A';
     </script>
 </body>
 </html>
