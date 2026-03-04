@@ -74,7 +74,7 @@
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
                 <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Detail Pengajuan Proposal</h1>
-                <p class="text-xs text-gray-500 mt-1 font-semibold uppercase tracking-wider">ID Pengajuan: #PROP-2026-004</p>
+                <p class="text-xs text-gray-500 mt-1 font-semibold uppercase tracking-wider">ID Pengajuan: #<span id="proposal_id"></span></p>
             </div>
             <div class="flex gap-2">
                 <button onclick="history.back()" class="bg-white border-2 border-gray-200 text-gray-600 px-5 py-2 rounded-lg font-bold text-xs hover:bg-gray-50 transition-all flex items-center gap-2">
@@ -310,6 +310,34 @@
                 dropdownMenu.classList.remove('show');
             }
         });
+
+        // Mengambil parameter 'id'
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get('id');
+        console.log('id = ' + id);
+        document.getElementById('proposal_id').textContent = id ? id : 'N/A';
+
+        // Mendapatkan parameter 'id' dari URL
+        /* function GetURLParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) 
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) 
+                {
+                    return sParameterName[1];
+                }
+            }
+        }
+
+        var id = GetURLParameter('id');
+        console.log('id = ' + id); */
+
+        // Mendapatkan URL saat ini
+        const currentUrl = window.location.href;
+        console.log(currentUrl); // Output: http://domain.com/halaman.html?id=10
     </script>
 </body>
 </html>
