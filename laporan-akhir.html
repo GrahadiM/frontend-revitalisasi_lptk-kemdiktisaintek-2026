@@ -73,7 +73,8 @@
         
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
-                <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Laporan Akhir</h1>
+                <p class="text-blue-600 font-bold text-sm uppercase tracking-wide">ID Pengajuan: #<span id="proposal_id"></span></p>
+                <h1 class="text-2xl md:text-4xl font-extrabold text-blue-950 mb-2 leading-tight">Detail Laporan Akhir</h1>
                 <p class="text-xs text-gray-500 mt-1 font-semibold uppercase tracking-wider italic">Periode Pelaksanaan: Maret - November 2026</p>
             </div>
             <div class="flex gap-2">
@@ -247,6 +248,12 @@
                 dropdownMenu.classList.remove('show');
             }
         });
+
+        // Mengambil parameter 'id'
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get('id');
+        console.log('id = ' + id);
+        document.getElementById('proposal_id').textContent = id ? id : 'N/A';
     </script>
 </body>
 </html>
