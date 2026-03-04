@@ -3,261 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Institusi - Revitalisasi LPTK 2026</title>
+    <title>Laporan Pelaksanaan Kegiatan - Revitalisasi LPTK 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .gradient-bg { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
-        .dropdown-menu { display: none; opacity: 0; transform: translateY(-10px); transition: all 0.2s ease; }
-        .dropdown-menu.show { display: block; opacity: 1; transform: translateY(0); }
-        
-        /* Custom Profile Styles */
-        .info-label { font-size: 10px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }
-        .info-value { font-size: 14px; font-weight: 600; color: #1e1b4b; border-bottom: 1px solid #f3f4f6; padding-bottom: 4px; }
-        
-        /* Tab Logic */
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-
-        /* Form PIC Toggle */
-        #form-pic-container { display: none; }
+        .table-header { font-size: 10px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; background-color: #f8fafc; }
+        .activity-row { background-color: #f1f5f9; font-weight: 700; color: #1e293b; }
+        .sub-activity-text { font-size: 13px; color: #475569; padding-left: 1.5rem; position: relative; }
+        .sub-activity-text::before { content: "•"; position: absolute; left: 0.5rem; color: #cbd5e1; }
+        .action-btn { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; transition: all 0.2s; }
     </style>
 </head>
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
 
     <header class="bg-white border-b sticky top-0 z-50 px-4 md:px-12 py-3 flex flex-wrap justify-between items-center gap-4">
-        <a href="index.html" class="flex items-center space-x-2">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto">
-            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK" class="h-16 w-auto">
+        <a href="http://revitalisasilptk.kemdiktisaintek.go.id" class="flex items-center space-x-2">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-tutwuri.webp" alt="Logo Tutwuri" class="h-16 w-auto" loading="lazy">
+            <img src="https://grahadim.github.io/frontend-lldikti/assets/images/logo-diktisaintek.png" alt="Logo DIKTISAINTEK Berdampak" class="h-16 w-auto" loading="lazy">
         </a>
         
-        <div class="relative inline-block text-left" id="user-dropdown-container">
-            <button id="dropdown-button" class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-all outline-none border border-transparent focus:border-gray-200">
-                <div class="text-right hidden md:block">
-                    <p class="text-xs font-bold text-blue-900">Universitas Negeri Jakarta</p>
-                    <p class="text-[10px] font-semibold text-gray-500">Perguruan Tinggi Negeri</p>
-                </div>
-                <div class="relative">
-                    <img src="https://ui-avatars.com/api/?name=Universitas+Negeri+Jakarta&background=0284c7&color=fff" alt="User" class="w-10 h-10 rounded-full border-2 border-white shadow-sm">
-                    <div class="absolute -bottom-1 -right-1 bg-white rounded-full w-4 h-4 flex items-center justify-center border shadow-xs">
-                        <i class="fas fa-chevron-down text-[8px] text-gray-600"></i>
-                    </div>
-                </div>
-            </button>
-            <div id="dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden">
-                <div class="py-1">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50"><i class="fas fa-home w-5 mr-2"></i> Dashboard</a>
-                    <hr class="my-1 border-gray-100">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-semibold"><i class="fas fa-sign-out-alt w-5 mr-2"></i> Keluar</a>
-                </div>
+        <div class="flex items-center gap-3">
+            <div class="text-right hidden md:block">
+                <p class="text-xs font-bold text-blue-900">Universitas Ahmad Dahlan</p>
+                <p class="text-[10px] font-semibold text-gray-500">Pelaporan Hibah 2026</p>
             </div>
+            <img src="https://ui-avatars.com/api/?name=Universitas+Ahmad+Dahlan&background=0284c7&color=fff" alt="User" class="w-10 h-10 rounded-full border-2 border-white shadow-sm">
         </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl">
         
         <div class="mb-8">
-            <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Profile Perguruan Tinggi</h1>
-            <p class="text-xs text-gray-500 mt-1 uppercase tracking-wider font-semibold">Manajemen Data LPTK & Kontak PIC</p>
+            <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Laporan Pelaksanaan Program/Kegiatan</h1>
+            <p class="text-sm font-bold text-blue-600 mt-1 uppercase tracking-widest">Universitas Ahmad Dahlan</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            
-            <div class="lg:col-span-1 space-y-6">
-                <div class="bg-white rounded-md border border-gray-100 overflow-hidden shadow-sm">
-                    <div class="h-24 bg-blue-900"></div>
-                    <div class="px-6 pb-6">
-                        <div class="relative flex justify-center -mt-12 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=Universitas+Negeri+Jakarta&background=0284c7&color=fff&size=128" class="w-24 h-24 rounded-md border-4 border-white shadow-md bg-white">
-                        </div>
-                        <div class="text-center">
-                            <h2 class="text-lg font-bold text-blue-950">Universitas Negeri Jakarta</h2>
-                            <p class="border border-blue-600 text-xs font-bold text-blue-600 bg-blue-50 inline-block px-3 py-1 rounded-full mt-2">Akreditasi Unggul</p>
-                        </div>
-                        <div class="mt-8 space-y-4">
-                            <div class="flex items-center gap-3 text-gray-600">
-                                <i class="fas fa-id-card w-5 text-gray-400"></i>
-                                <span class="text-xs font-semibold">Kode PT: 001002</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-gray-600">
-                                <i class="fas fa-map-marker-alt w-5 text-gray-400"></i>
-                                <span class="text-xs font-semibold">DKI Jakarta, Indonesia</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-gray-600">
-                                <i class="fas fa-globe w-5 text-gray-400"></i>
-                                <a href="https://unj.ac.id" target="_blank" class="text-xs font-semibold text-blue-600 hover:underline">www.unj.ac.id</a>
-                            </div>
-                        </div>
-                        <button class="w-full mt-8 border-2 border-blue-600 bg-blue-600 text-white font-bold py-3 rounded-md text-xs hover:bg-white hover:text-blue-600 transition-all">
-                            <i class="fas fa-camera mr-2"></i> Ubah Logo PT
-                        </button>
-                    </div>
+        <div class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="table-header border-b border-gray-200">
+                            <th class="px-4 py-4 text-center w-12 border-r">NO</th>
+                            <th class="px-6 py-4 text-left min-w-[300px] border-r">Aktivitas / Sub Aktivitas</th>
+                            <th class="px-4 py-4 text-center border-r">Pelaksanaan</th>
+                            <th class="px-4 py-4 text-center border-r">Hasil Pelaksanaan</th>
+                            <th class="px-4 py-4 text-center border-r">Kendala</th>
+                            <th class="px-4 py-4 text-center border-r">Upaya Perbaikan</th>
+                            <th class="px-4 py-4 text-center min-w-[150px]">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        
+                        <tr class="activity-row">
+                            <td class="px-4 py-3 text-center border-r">1</td>
+                            <td class="px-6 py-3 border-r" colspan="5">A. Pengembangan instrumen asesmen dan pelaksanaan asesmen/evaluasi terhadap pencapaian CPL</td>
+                            <td class="px-4 py-3 text-center bg-white">
+                                <button class="action-btn bg-blue-600 text-white hover:bg-blue-700 w-full mb-1"><i class="fas fa-file-invoice-dollar mr-1"></i> Laporan Anggaran</button>
+                                <div class="flex gap-1">
+                                    <button class="action-btn bg-amber-400 text-white hover:bg-amber-500 flex-1">Ubah</button>
+                                    <button class="action-btn bg-red-500 text-white hover:bg-red-600 flex-1">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border-r"></td>
+                            <td class="px-6 py-2 border-r">
+                                <div class="sub-activity-text">A.1 FGD pengembangan instrumen asesmen</div>
+                                <div class="sub-activity-text">A.2 Workshop pengukuran asesmen pencapaian CPL</div>
+                                <div class="sub-activity-text">A.3 Workshop evaluasi pencapaian CPL</div>
+                            </td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 border-l"></td>
+                        </tr>
+
+                        <tr class="activity-row">
+                            <td class="px-4 py-3 text-center border-r">2</td>
+                            <td class="px-6 py-3 border-r" colspan="5">B. Pengembangan instrumen dan pelaksanaan micro-teaching reflektif dengan memanfaatkan teknologi digital</td>
+                            <td class="px-4 py-3 text-center bg-white">
+                                <button class="action-btn bg-blue-600 text-white hover:bg-blue-700 w-full mb-1"><i class="fas fa-file-invoice-dollar mr-1"></i> Laporan Anggaran</button>
+                                <div class="flex gap-1">
+                                    <button class="action-btn bg-amber-400 text-white hover:bg-amber-500 flex-1">Ubah</button>
+                                    <button class="action-btn bg-red-500 text-white hover:bg-red-600 flex-1">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border-r"></td>
+                            <td class="px-6 py-2 border-r">
+                                <div class="sub-activity-text">B.1 FGD pengembangan instrumen micro-teaching reflektif</div>
+                                <div class="sub-activity-text">B.2 Workshop modul micro-teaching reflektif</div>
+                                <div class="sub-activity-text">B.3 Workshop pelaksanaan micro-teaching reflektif</div>
+                                <div class="sub-activity-text">B.4 Penyelenggaraan model pelaksanaan micro-teaching</div>
+                            </td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 border-l"></td>
+                        </tr>
+
+                        <tr class="activity-row">
+                            <td class="px-4 py-3 text-center border-r">3</td>
+                            <td class="px-6 py-3 border-r" colspan="5">C. Penguatan pelaksanaan siklus PPEPP pada Penjaminan Mutu Program Studi PPG</td>
+                            <td class="px-4 py-3 text-center bg-white">
+                                <button class="action-btn bg-blue-600 text-white hover:bg-blue-700 w-full mb-1"><i class="fas fa-file-invoice-dollar mr-1"></i> Laporan Anggaran</button>
+                                <div class="flex gap-1">
+                                    <button class="action-btn bg-amber-400 text-white hover:bg-amber-500 flex-1">Ubah</button>
+                                    <button class="action-btn bg-red-500 text-white hover:bg-red-600 flex-1">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border-r"></td>
+                            <td class="px-6 py-2 border-r">
+                                <div class="sub-activity-text">C.1 Workshop penyusunan instrumen PPEPP versi 2.0</div>
+                            </td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 border-l"></td>
+                        </tr>
+
+                        <tr class="activity-row">
+                            <td class="px-4 py-3 text-center border-r">4</td>
+                            <td class="px-6 py-3 border-r" colspan="5">D. Pengembangan dan penyusunan dokumen-dokumen usulan akreditasi menuju Unggul</td>
+                            <td class="px-4 py-3 text-center bg-white">
+                                <button class="action-btn bg-blue-600 text-white hover:bg-blue-700 w-full mb-1"><i class="fas fa-file-invoice-dollar mr-1"></i> Laporan Anggaran</button>
+                                <div class="flex gap-1">
+                                    <button class="action-btn bg-amber-400 text-white hover:bg-amber-500 flex-1">Ubah</button>
+                                    <button class="action-btn bg-red-500 text-white hover:bg-red-600 flex-1">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border-r"></td>
+                            <td class="px-6 py-2 border-r">
+                                <div class="sub-activity-text">D.1 Workshop penyusunan dokumen data-data kuantitatif</div>
+                                <div class="sub-activity-text">D.2 Workshop penyusunan Laporan Evaluasi Diri (LED)</div>
+                            </td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 text-center border-r text-gray-400">-</td>
+                            <td class="px-4 py-2 border-l"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 bg-gray-50 border-t">
+                <div class="flex justify-between items-center">
+                    <p class="text-[11px] text-gray-500">Menampilkan 4 Program Utama dan 11 Sub-Aktivitas</p>
+                    <button class="bg-blue-900 text-white px-6 py-2 rounded font-bold text-xs shadow-lg hover:bg-blue-800 transition-all">
+                        <i class="fas fa-save mr-2"></i> Simpan Draft Laporan
+                    </button>
                 </div>
             </div>
-
-            <div class="lg:col-span-3 space-y-4">
-                
-                <div id="alert-security" class="bg-red-50 border border-red-100 rounded-md p-4 flex justify-between items-start gap-4">
-                    <div class="flex gap-4">
-                        <i class="fas fa-shield-alt text-red-500 mt-1"></i>
-                        <div>
-                            <p class="text-xs font-bold text-red-800 uppercase">Peringatan Keamanan</p>
-                            <p class="text-xs text-red-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun.</p>
-                        </div>
-                    </div>
-                    <button onclick="dismissAlert('alert-security')" class="text-red-400 hover:text-red-600 transition-colors"><i class="fas fa-times"></i></button>
-                </div>
-
-                <div id="alert-notice" class="bg-amber-50 border border-amber-100 rounded-md p-4 flex justify-between items-start gap-4">
-                    <div class="flex gap-4">
-                        <i class="fas fa-info-circle text-amber-500 mt-1"></i>
-                        <div>
-                            <p class="text-xs font-bold text-amber-800 uppercase">Perhatian</p>
-                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Perubahan pada data pokok memerlukan verifikasi manual oleh Admin Pusat.</p>
-                        </div>
-                    </div>
-                    <button onclick="dismissAlert('alert-notice')" class="text-amber-400 hover:text-amber-600 transition-colors"><i class="fas fa-times"></i></button>
-                </div>
-
-                <div class="flex gap-6 border-b border-gray-200 text-sm font-bold pt-2">
-                    <button onclick="openTab(event, 'info-umum')" class="tab-link text-blue-600 border-b-2 border-blue-600 pb-3">Informasi Umum</button>
-                    <button onclick="openTab(event, 'data-pic')" class="tab-link text-gray-400 hover:text-gray-600 pb-3 transition-colors">Data PIC</button>
-                    <button onclick="openTab(event, 'update-password')" class="tab-link text-gray-400 hover:text-gray-600 pb-3 transition-colors">Keamanan Akun</button>
-                </div>
-
-                <div id="info-umum" class="tab-content active bg-white rounded-md border border-gray-100 p-8 shadow-sm">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                        <div class="flex flex-col"><label class="info-label">Nama Resmi PT</label><p class="info-value">Universitas Negeri Jakarta</p></div>
-                        <div class="flex flex-col"><label class="info-label">NPSN</label><p class="info-value">20101234</p></div>
-                        <div class="flex flex-col"><label class="info-label">Email Institusi</label><p class="info-value">humas@unj.ac.id</p></div>
-                        <div class="flex flex-col"><label class="info-label">Telepon Kantor</label><p class="info-value">(021) 4894909</p></div>
-                        <div class="md:col-span-2 flex flex-col"><label class="info-label">Alamat Kantor Pusat</label><p class="info-value">Jl. Rawamangun Muka, Jakarta Timur</p></div>
-                    </div>
-                    <button class="mt-8 border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all">Perbarui Data Profil</button>
-                </div>
-
-                <div id="data-pic" class="tab-content bg-white rounded-md border border-gray-100 p-8 shadow-sm">
-                    
-                    <div id="view-pic-container" class="space-y-8">
-                        <div class="border-l-4 border-blue-600 pl-4">
-                            <h3 class="text-sm font-bold text-gray-800 mb-4 uppercase tracking-wider">PIC Utama</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                                <div class="flex flex-col"><label class="info-label">Nama PIC</label><p class="info-value">Prof. Dr. Ahmad Subarjo</p></div>
-                                <div class="flex flex-col"><label class="info-label">Jabatan</label><p class="info-value">Wakil Rektor Bidang Akademik</p></div>
-                                <div class="flex flex-col"><label class="info-label">Nomor WhatsApp</label><p class="info-value">0812-3456-7890</p></div>
-                            </div>
-                        </div>
-                        <div class="border-l-4 border-emerald-500 pl-4">
-                            <h3 class="text-sm font-bold text-gray-800 mb-4 uppercase tracking-wider">Operator</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                                <div class="flex flex-col"><label class="info-label">Nama Operator</label><p class="info-value">Budi Santoso, S.Kom</p></div>
-                                <div class="flex flex-col"><label class="info-label">Kontak</label><p class="info-value">+62 857-1122-3344</p></div>
-                            </div>
-                        </div>
-                        <button onclick="togglePicForm(true)" class="border-2 border-blue-600 bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-white hover:text-blue-600 transition-all">
-                            <i class="fas fa-user-edit mr-2"></i> Perbarui Data PIC
-                        </button>
-                    </div>
-
-                    <div id="form-pic-container">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="text-sm font-bold text-blue-900 uppercase">Update Kontak PIC</h3>
-                            <button onclick="togglePicForm(false)" class="text-gray-400 hover:text-gray-600 text-xs font-bold uppercase tracking-widest"><i class="fas fa-times mr-1"></i> Batal</button>
-                        </div>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                            <div class="flex flex-col">
-                                <label class="info-label mb-1">Nama Lengkap</label>
-                                <input type="text" value="Prof. Dr. Ahmad Subarjo" class="bg-gray-50 border border-gray-200 rounded p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                            </div>
-                            <div class="flex flex-col">
-                                <label class="info-label mb-1">Jabatan</label>
-                                <input type="text" value="Wakil Rektor Bidang Akademik" class="bg-gray-50 border border-gray-200 rounded p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                            </div>
-                            <div class="flex flex-col">
-                                <label class="info-label mb-1">Nomor WhatsApp</label>
-                                <input type="tel" value="081234567890" class="bg-gray-50 border border-gray-200 rounded p-2.5 text-sm font-semibold outline-none focus:border-blue-500">
-                            </div>
-                            <div class="md:col-span-2">
-                                <button type="button" onclick="togglePicForm(false)" class="border-2 border-emerald-600 bg-emerald-600 text-white px-8 py-3 rounded-md text-xs font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-100">
-                                    Simpan Perubahan
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div id="update-password" class="tab-content bg-white rounded-md border border-gray-100 p-8 shadow-sm">
-                    <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Ganti Kata Sandi</h3>
-                    <form class="space-y-6 max-w-md">
-                        <div class="flex flex-col"><label class="info-label mb-1">Sandi Saat Ini</label><input type="password" placeholder="••••••••" class="bg-gray-50 border border-gray-200 rounded p-2.5 text-sm outline-none focus:border-blue-500"></div>
-                        <div class="flex flex-col"><label class="info-label mb-1">Sandi Baru</label><input type="password" placeholder="••••••••" class="bg-gray-50 border border-gray-200 rounded p-2.5 text-sm outline-none focus:border-blue-500"></div>
-                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md text-xs font-bold hover:bg-blue-700">Ganti Sandi</button>
-                    </form>
-                </div>
-            </div>
-
         </div>
     </main>
 
     <footer class="bg-blue-950 text-white border-t border-gray-500 mt-12 py-10 px-4 md:px-12">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div><h5 class="font-bold text-xs border-b border-gray-700 pb-2 mb-4 uppercase">Kantor Pusat</h5><p class="text-xs leading-relaxed">Gedung D Lantai 13, Senayan, Jakarta Pusat.</p></div>
-            <div><h5 class="font-bold text-xs border-b border-gray-700 pb-2 mb-4 uppercase">Tautan Bantuan</h5><ul class="text-xs space-y-2"><li>Cara Pendaftaran</li><li>FAQ</li></ul></div>
-            <div><h5 class="font-bold text-xs border-b border-gray-700 pb-2 mb-4 uppercase">Media Sosial</h5><div class="flex gap-4 text-xl"><i class="fab fa-instagram"></i><i class="fab fa-facebook"></i><i class="fab fa-youtube"></i></div></div>
-            <div class="text-right"><p class="text-[10px] text-gray-400">© 2026 Kemdiktisaintek RI. All Rights Reserved.</p></div>
+            <div class="lg:col-span-2">
+                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Kementrian Pendidikan Tinggi, Sains, dan Teknologi</h5>
+                <p class="text-sm leading-relaxed text-gray-300">Gedung D Lantai 13, Jl. Jenderal Sudirman Senayan, Jakarta Pusat, Indonesia 10270</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Navigasi</h5>
+                <ul class="text-xs space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Panduan Pengisian Laporan</a></li>
+                    <li><a href="#" class="hover:text-white">Unduh Logbook</a></li>
+                    <li><a href="#" class="hover:text-white">FAQ Pelaporan</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm border-b-2 border-gray-500 pb-2 mb-4 uppercase">Hubungi Kami</h5>
+                <p class="text-xs text-gray-400">Helpdesk: 082149172262 (WhatsApp Only)</p>
+                <div class="flex gap-3 mt-4 text-gray-400">
+                    <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Dropdown Header Logic
-        const dropdownButton = document.getElementById('dropdown-button');
-        const dropdownMenu = document.getElementById('dropdown-menu');
-        dropdownButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-        });
-        window.onclick = () => dropdownMenu.classList.remove('show');
-
-        // Dismiss Alerts (Fitur X)
-        function dismissAlert(alertId) {
-            document.getElementById(alertId).style.display = 'none';
-        }
-
-        // Tab Logic
-        function openTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-link");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("text-blue-600", "border-b-2", "border-blue-600");
-                tablinks[i].classList.add("text-gray-400");
-            }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("text-blue-600", "border-b-2", "border-blue-600");
-            evt.currentTarget.classList.remove("text-gray-400");
-
-            // Reset Form PIC state saat pindah tab
-            if(tabName !== 'data-pic') togglePicForm(false);
-        }
-
-        // Toggle Form PIC Logic
-        function togglePicForm(show) {
-            const viewCard = document.getElementById('view-pic-container');
-            const formCard = document.getElementById('form-pic-container');
-            
-            if (show) {
-                viewCard.style.display = 'none';
-                formCard.style.display = 'block';
-            } else {
-                viewCard.style.display = 'block';
-                formCard.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
