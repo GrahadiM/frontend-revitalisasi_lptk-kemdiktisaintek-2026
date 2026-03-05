@@ -158,22 +158,22 @@
                         <h3 class="text-white font-bold text-xs uppercase tracking-widest">Unggah Laporan Resmi</h3>
                     </div>
                     <div class="p-6 space-y-6">
-                        <div>
-                            <p class="info-label mb-2">Laporan Kemajuan (70%)</p>
-                            <div class="border-2 border-dashed border-gray-200 rounded-lg p-4 text-center hover:bg-gray-50 transition-all cursor-pointer">
-                                <i class="fas fa-cloud-upload-alt text-2xl text-gray-300 mb-2"></i>
-                                <p class="text-[10px] text-gray-500 font-bold">Klik untuk unggah atau seret file PDF</p>
-                                <p class="text-[9px] text-gray-400 mt-1">Maks. 10MB (Format PDF)</p>
-                            </div>
-                        </div>
-                        
-                        <hr class="border-gray-100">
-
+                        <!-- Disabled Laporan Akhir, Jika laporan kegiatan belum selesai (progress laporan kegiatan belum 100%) -->
                         <div>
                             <p class="info-label mb-2 text-gray-400">Laporan Akhir (100%)</p>
                             <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-center opacity-60">
                                 <i class="fas fa-lock text-gray-300 mb-2"></i>
                                 <p class="text-[10px] text-gray-400 font-bold uppercase">Belum Dibuka</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-100">
+                        <!-- Unggah Laporan Akhir, Jika laporan kegiatan sudah selesai (progress laporan kegiatan wajib 100%) -->
+                        <div>
+                            <p class="info-label mb-2">Laporan Akhir</p>
+                            <div class="border-2 border-dashed border-gray-200 rounded-lg p-4 text-center hover:bg-gray-50 transition-all cursor-pointer">
+                                <i class="fas fa-cloud-upload-alt text-2xl text-gray-300 mb-2"></i>
+                                <p class="text-[10px] text-gray-500 font-bold">Klik untuk unggah atau seret file PDF</p>
+                                <p class="text-[9px] text-gray-400 mt-1">Maks. 10MB (Format PDF)</p>
                             </div>
                         </div>
                     </div>
