@@ -127,13 +127,13 @@
                             </td>
                             <td class="text-right">
                                 <div class="flex justify-end gap-1">
-                                    <button title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
+                                    <button onclick="viewItem(1)" title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button disabled title="Data sudah divalidasi" class="px-2 py-1 text-gray-300 bg-gray-50 rounded-md cursor-not-allowed border border-gray-200">
+                                    <button onclick="editItem(1)" disabled title="Data sudah divalidasi" class="px-2 py-1 text-gray-300 bg-gray-50 rounded-md cursor-not-allowed border border-gray-200">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button disabled title="Data sudah divalidasi" class="px-2 py-1 text-gray-300 bg-gray-50 rounded-md cursor-not-allowed border border-gray-200">
+                                    <button onclick="deleteItem(1)" disabled title="Data sudah divalidasi" class="px-2 py-1 text-gray-300 bg-gray-50 rounded-md cursor-not-allowed border border-gray-200">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
@@ -153,10 +153,10 @@
                             </td>
                             <td class="text-right">
                                 <div class="flex justify-end gap-1">
-                                    <button title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
+                                    <button onclick="viewItem(2)" title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button title="Ubah" class="px-2 py-1 bg-amber-500 text-white hover:text-amber-500 hover:bg-white rounded-md transition-colors border border-amber-500">
+                                    <button onclick="editItem(2)" title="Ubah" class="px-2 py-1 bg-amber-500 text-white hover:text-amber-500 hover:bg-white rounded-md transition-colors border border-amber-500">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                     <button onclick="deleteItem(2)" title="Hapus" class="px-2 py-1 bg-red-500 text-white hover:text-red-500 hover:bg-white rounded-md transition-colors border border-red-500">
@@ -179,10 +179,10 @@
                             </td>
                             <td class="text-right">
                                 <div class="flex justify-end gap-1">
-                                    <button title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
+                                    <button onclick="viewItem(3)" title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button title="Ubah" class="px-2 py-1 bg-amber-500 text-white hover:text-amber-500 hover:bg-white rounded-md transition-colors border border-amber-500">
+                                    <button onclick="editItem(3)" title="Ubah" class="px-2 py-1 bg-amber-500 text-white hover:text-amber-500 hover:bg-white rounded-md transition-colors border border-amber-500">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                     <button onclick="deleteItem(3)" title="Hapus" class="px-2 py-1 bg-red-500 text-white hover:text-red-500 hover:bg-white rounded-md transition-colors border border-red-500">
@@ -280,7 +280,21 @@
         var activityId = params.get('activity_id');
         document.getElementById('activity_id').textContent = activityId ? activityId : '1. Pengembangan instrumen asesmen dan pelaksanaan asesmen/evaluasi terhadap pencapaian Capaian Pembelajaran Lulusan';
 
-        // Fungsi untuk menghapus item (contoh sederhana)
+        // Fungsi untuk menampilkan detail item
+        function viewItem(itemId) {
+            // Lakukan logika untuk menampilkan detail item dengan ID tertentu
+            console.log(`Menampilkan detail item dengan ID: ${itemId}`);
+            window.alert(`Menampilkan detail untuk item dengan ID: ${itemId}`);
+        }
+
+        // Fungsi untuk mengedit item
+        function editItem(itemId) {
+            // Lakukan logika untuk mengedit item dengan ID tertentu
+            console.log(`Mengedit item dengan ID: ${itemId}`);
+            window.alert(`Fitur edit untuk item dengan ID: ${itemId} belum tersedia.`);
+        }
+        
+        // Fungsi untuk menghapus item
         function deleteItem(itemId) {
             // Lakukan logika untuk menghapus item dengan ID tertentu
             console.log(`Menghapus item dengan ID: ${itemId}`);
