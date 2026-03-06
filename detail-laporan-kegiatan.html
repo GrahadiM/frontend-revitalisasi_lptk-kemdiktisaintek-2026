@@ -74,7 +74,7 @@
         </div>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
         
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div class="max-w-2xl">
@@ -115,17 +115,17 @@
                     <tbody class="divide-y divide-gray-100">
                         
                         <tr class="hover:bg-gray-50/50 transition-colors">
-                            <td class="px-6 py-4">
+                            <td>
                                 <p class="text-sm font-bold text-gray-800">12 Maret 2026</p>
                                 <p class="text-[11px] text-gray-500"><i class="fas fa-map-marker-alt mr-1"></i> Ruang Rapat Lt. 2</p>
                             </td>
-                            <td class="px-6 py-4">
+                            <td>
                                 <h4 class="font-bold text-blue-900 text-sm mb-1">FGD pengembangan instrumen asesmen</h4>
                             </td>
-                            <td class="px-6 py-4 text-center">
-                                <span class="status-badge status-valid">Valid</span>
+                            <td class="text-center">
+                                <span class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Selesai</span>
                             </td>
-                            <td class="px-6 py-4 text-right">
+                            <td class="text-right">
                                 <div class="flex justify-end gap-1">
                                     <button title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
                                         <i class="fas fa-eye"></i>
@@ -141,17 +141,17 @@
                         </tr>
 
                         <tr class="hover:bg-gray-50/50 transition-colors">
-                            <td class="px-6 py-4">
+                            <td>
                                 <p class="text-sm font-bold text-gray-800">15 Maret 2026</p>
                                 <p class="text-[11px] text-gray-500"><i class="fas fa-map-marker-alt mr-1"></i> Zoom Meeting</p>
                             </td>
-                            <td class="px-6 py-4">
+                            <td>
                                 <h4 class="font-bold text-blue-900 text-sm mb-1">Workshop pengukuran asesmen pencapaian CPL</h4>
                             </td>
-                            <td class="px-6 py-4 text-center">
-                                <span class="status-badge status-pending">Menunggu</span>
+                            <td class="text-center">
+                                <span class="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Proses</span>
                             </td>
-                            <td class="px-6 py-4 text-right">
+                            <td class="text-right">
                                 <div class="flex justify-end gap-1">
                                     <button title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
                                         <i class="fas fa-eye"></i>
@@ -159,7 +159,7 @@
                                     <button title="Ubah" class="px-2 py-1 bg-amber-500 text-white hover:text-amber-500 hover:bg-white rounded-md transition-colors border border-amber-500">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button title="Hapus" class="px-2 py-1 bg-red-500 text-white hover:text-red-500 hover:bg-white rounded-md transition-colors border border-red-500">
+                                    <button onclick="deleteItem(2)" title="Hapus" class="px-2 py-1 bg-red-500 text-white hover:text-red-500 hover:bg-white rounded-md transition-colors border border-red-500">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
@@ -167,17 +167,17 @@
                         </tr>
 
                         <tr class="hover:bg-gray-50/50 transition-colors">
-                            <td class="px-6 py-4">
+                            <td>
                                 <p class="text-sm font-bold text-gray-800">15 Maret 2026</p>
                                 <p class="text-[11px] text-gray-500"><i class="fas fa-map-marker-alt mr-1"></i> Zoom Meeting</p>
                             </td>
-                            <td class="px-6 py-4">
+                            <td>
                                 <h4 class="font-bold text-blue-900 text-sm mb-1">Workshop evaluasi pencapaian CPL</h4>
                             </td>
-                            <td class="px-6 py-4 text-center">
-                                <span class="status-badge status-pending">Menunggu</span>
+                            <td class="text-center">
+                                <span class="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Proses</span>
                             </td>
-                            <td class="px-6 py-4 text-right">
+                            <td class="text-right">
                                 <div class="flex justify-end gap-1">
                                     <button title="Lihat" class="px-2 py-1 bg-blue-500 text-white hover:text-blue-500 hover:bg-white rounded-md transition-colors border border-blue-500">
                                         <i class="fas fa-eye"></i>
@@ -185,7 +185,7 @@
                                     <button title="Ubah" class="px-2 py-1 bg-amber-500 text-white hover:text-amber-500 hover:bg-white rounded-md transition-colors border border-amber-500">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button title="Hapus" class="px-2 py-1 bg-red-500 text-white hover:text-red-500 hover:bg-white rounded-md transition-colors border border-red-500">
+                                    <button onclick="deleteItem(3)" title="Hapus" class="px-2 py-1 bg-red-500 text-white hover:text-red-500 hover:bg-white rounded-md transition-colors border border-red-500">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
@@ -279,6 +279,14 @@
         // ID Kegiatan dari URL
         var activityId = params.get('activity_id');
         document.getElementById('activity_id').textContent = activityId ? activityId : '1. Pengembangan instrumen asesmen dan pelaksanaan asesmen/evaluasi terhadap pencapaian Capaian Pembelajaran Lulusan';
+
+        // Fungsi untuk menghapus item (contoh sederhana)
+        function deleteItem(itemId) {
+            // Lakukan logika untuk menghapus item dengan ID tertentu
+            console.log(`Menghapus item dengan ID: ${itemId}`);
+            confirm(`Apakah Anda yakin ingin menghapus item dengan ID: ${itemId}?`) && console.log(`Item dengan ID: ${itemId} telah dihapus.`);
+            window.alert(`Data dengan ID: ${itemId} telah dihapus.`);
+        }
     </script>
 </body>
 </html>
