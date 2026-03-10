@@ -67,7 +67,7 @@
         </div>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl">
         
         <nav class="flex mb-5 text-gray-500 text-xs" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
@@ -98,22 +98,20 @@
             </div>
 
             <form action="#" class="p-8 space-y-8">
-                
                 <div>
                     <h3 class="text-lg font-bold text-blue-950 mb-4 flex items-center gap-2">
                         <i class="fas fa-university text-blue-600"></i> Informasi Institusi
                     </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="space-y-2">
                             <label class="text-xs font-bold text-gray-600 uppercase">Nama Institusi</label>
                             <input type="text" value="Universitas Negeri Jakarta" disabled class="w-full p-3 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-500 cursor-not-allowed">
                         </div>
                         <div class="space-y-2">
-                            <label class="text-xs font-bold text-gray-600 uppercase">Skema Program</label>
+                            <label class="text-xs font-bold text-gray-600 uppercase">Skema Program <span class="text-red-500">*</span></label>
                             <select class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
-                                <option>Revitalisasi LPTK - Penguatan Pembelajaran Digital</option>
-                                <option>Revitalisasi LPTK - Pengembangan Lab Kependidikan</option>
-                                <option>Revitalisasi LPTK - Kolaborasi Sekolah Mitra</option>
+                                <option>Program 1 - Peningkatan Kualitas Program Studi PPG</option>
+                                <option>Program 2 - Peningkatan Kualitas LPTK</option>
                             </select>
                         </div>
                     </div>
@@ -132,7 +130,7 @@
                         </div>
                         <div class="space-y-2">
                             <label class="text-xs font-bold text-gray-600 uppercase">Abstrak / Ringkasan Eksekutif <span class="text-red-500">*</span></label>
-                            <textarea rows="4" placeholder="Jelaskan secara singkat urgensi dan target program..." class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                            <textarea rows="5" placeholder="Jelaskan secara singkat urgensi dan target program..." class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
                             <p class="text-[10px] text-gray-400">Maksimal 250 kata.</p>
                         </div>
                     </div>
@@ -142,31 +140,35 @@
 
                 <div>
                     <h3 class="text-lg font-bold text-blue-950 mb-4 flex items-center gap-2">
-                        <i class="fas fa-users text-blue-600"></i> Tim Pelaksana
+                        <i class="fas fa-users text-blue-600"></i> Tim Pelaksana (Data PIC)
                     </h3>
                     <div class="bg-gray-50 p-4 rounded-md border border-dashed border-gray-300">
-                        <div class="flex flex-col md:flex-row gap-4 items-end">
-                            <div class="flex-1 space-y-2">
-                                <label class="text-[10px] font-bold text-gray-500 uppercase">Nama Lengkap & Gelar</label>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                            <div class="col-span-1 md:col-span-2 space-y-2">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Nama Lengkap <span class="text-red-500">*</span></label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded bg-white text-sm outline-none">
+                            </div>
+                            <div class="col-span-1 space-y-2">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Jabatan <span class="text-red-500">*</span></label>
                                 <input type="text" class="w-full p-2 border border-gray-300 rounded bg-white text-sm outline-none">
                             </div>
                             <div class="w-full md:w-48 space-y-2">
-                                <label class="text-[10px] font-bold text-gray-500 uppercase">NIDN / NIP</label>
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">NIP / NIDN <span class="text-red-500">*</span></label>
                                 <input type="text" class="w-full p-2 border border-gray-300 rounded bg-white text-sm outline-none">
                             </div>
-                            <div class="w-full md:w-48 space-y-2">
-                                <label class="text-[10px] font-bold text-gray-500 uppercase">Peran</label>
-                                <select class="w-full p-2 border border-gray-300 rounded bg-white text-sm outline-none">
-                                    <option>Ketua Pelaksana</option>
-                                    <option>Anggota</option>
-                                    <option>Staf Administrasi</option>
-                                </select>
+                            <div class="col-span-1 md:col-span-2 space-y-2">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Nomor WhatsApp <span class="text-red-500">*</span></label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded bg-white text-sm outline-none">
                             </div>
-                            <button type="button" class="bg-blue-600 text-white p-2.5 rounded-md hover:bg-blue-700 transition-colors">
+                            <div class="col-span-1 md:col-span-2 space-y-2">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">SK PIC <span class="text-red-500">*</span></label>
+                                <input type="file" name="sk_pic" id="sk_pic" class="w-full p-2 border border-gray-300 rounded bg-white text-sm outline-none">
+                            </div>
+                            <!-- <button type="button" class="bg-blue-600 text-white p-2.5 rounded-md hover:bg-blue-700 transition-colors">
                                 <i class="fas fa-plus px-2"></i>
-                            </button>
+                            </button> -->
                         </div>
-                        <p class="mt-4 text-[11px] text-blue-600 italic"><i class="fas fa-info-circle mr-1"></i> Ketua pelaksana wajib berasal dari homebase LPTK pengusul.</p>
+                        <p class="mt-4 text-[11px] text-blue-600"><i class="fas fa-info-circle mr-1"></i> Ketua pelaksana wajib berasal dari homebase LPTK pengusul.</p>
                     </div>
                 </div>
 

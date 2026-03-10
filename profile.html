@@ -147,34 +147,35 @@
                         <button onclick="dismissAlert('alert-notice')" class="text-amber-400 hover:text-amber-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
-                    <div class="bg-white rounded-md border border-gray-100 p-8">
+                    <div class="bg-white rounded-md border border-gray-100 p-8 mb-2">
+                        <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Data Perguruan Tinggi</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                             <div class="flex flex-col">
                                 <label class="info-label mb-1">Nama Resmi Perguruan Tinggi</label>
                                 <p class="info-value">Universitas Negeri Jakarta</p>
                             </div>
                             <div class="flex flex-col">
-                                <label class="info-label mb-1">NPSN</label>
-                                <p class="info-value">20101234</p>
+                                <label class="info-label mb-1">No. NPWP</label>
+                                <p class="info-value">1091034210918604</p>
                             </div>
                             <div class="flex flex-col">
-                                <label class="info-label mb-1">Nama PIC (Rektor/Wakil Rektor)</label>
-                                <p class="info-value">Prof. Dr. Ahmad Subarjo</p>
+                                <label class="info-label mb-1">Nama Bank</label>
+                                <p class="info-value">BNI</p>
                             </div>
                             <div class="flex flex-col">
-                                <label class="info-label mb-1">Jabatan PIC</label>
-                                <p class="info-value">Wakil Rektor Bidang Akademik</p>
+                                <label class="info-label mb-1">No. Rekening</label>
+                                <p class="info-value">9884446240969651</p>
                             </div>
                             <div class="flex flex-col">
                                 <label class="info-label mb-1">Email Resmi Institusi</label>
                                 <p class="info-value">humas@unj.ac.id</p>
                             </div>
                             <div class="flex flex-col">
-                                <label class="info-label mb-1">Nomor Telepon Kantor</label>
+                                <label class="info-label mb-1">No. Telepon</label>
                                 <p class="info-value">(021) 4894909</p>
                             </div>
                             <div class="md:col-span-2 flex flex-col">
-                                <label class="info-label mb-1">Alamat Kantor Pusat</label>
+                                <label class="info-label mb-1">Alamat Perguruan Tinggi</label>
                                 <p class="info-value">Jl. Rawamangun Muka, RT.11/RW.14, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur</p>
                             </div>
                         </div>
@@ -188,6 +189,60 @@
                                 Unduh Sertifikat Akreditasi
                             </button>
                         </div> -->
+                    </div>
+                    <div class="bg-white rounded-md border border-gray-100 p-8 mb-2">
+                        <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Data LPTK</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Nama LPTK</label>
+                                <p class="info-value">Universitas Negeri Jakarta</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Singkatan</label>
+                                <p class="info-value">UNJ</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Provinsi</label>
+                                <p class="info-value">DKI Jakarta</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Kabupaten/Kota</label>
+                                <p class="info-value">Jakarta Timur</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 mt-6">
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Akreditasi Institusi</label>
+                                <p class="info-value">Unggul</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">Akreditasi Prodi PPG</label>
+                                <p class="info-value">A</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="info-label mb-1">SK Akreditasi</label>
+                                <p class="info-value">Jul-21</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-md border border-gray-100 p-8 mb-2">
+                        <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Dokumen Pendukung</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                            <div class="flex items-center gap-4">
+                                <i class="fas fa-file-alt text-gray-400 w-5"></i>
+                                <div class="flex-1">
+                                    <p class="text-sm font-semibold text-gray-800">NPWP</p>
+                                    <a href="#" class="text-xs text-blue-600 hover:underline">download_npwp.pdf</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i class="fas fa-file-alt text-gray-400 w-5"></i>
+                                <div class="flex-1">
+                                    <p class="text-sm font-semibold text-gray-800">Rekening</p>
+                                    <a href="#" class="text-xs text-blue-600 hover:underline">download_rekening.pdf</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -226,7 +281,7 @@
                         <button onclick="dismissAlert('alert-success')" class="text-green-400 hover:text-green-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
-                    <div id="view-pic-container" class="bg-white rounded-md border border-gray-100 p-8">
+                    <div id="view-pic-container" class="bg-white rounded-md border border-gray-100 p-8 mb-2">
                         <div class="space-y-8">
                             <div class="border-l-4 border-blue-600 pl-4">
                                 <h3 class="text-sm font-bold text-gray-800 mb-4">Person In Charge (PIC) Utama</h3>
@@ -255,15 +310,14 @@
                             </div>
 
                             <div class="border-l-4 border-emerald-500 pl-4">
-                                <h3 class="text-sm font-bold text-gray-800 mb-4">Staf Admin / Operator LPTK</h3>
+                                <h3 class="text-sm font-bold text-gray-800 mb-4">Dokumen Pendukung</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                                    <div class="flex flex-col">
-                                        <label class="info-label">Nama Operator</label>
-                                        <p class="info-value">Budi Santoso, S.Kom</p>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <label class="info-label">Kontak Operator</label>
-                                        <p class="info-value">+62 857-1122-3344</p>
+                                    <div class="flex items-center gap-2">
+                                        <i class="fas fa-file-alt text-gray-400 w-5"></i>
+                                        <div class="flex-1">
+                                            <p class="text-sm font-semibold text-gray-800">SK PIC</p>
+                                            <a href="#" class="text-xs text-blue-600 hover:underline">download_sk_pic.pdf</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -276,7 +330,7 @@
                         </div>
                     </div>
 
-                    <div id="form-pic-container" class="bg-white rounded-md border border-gray-100 p-8">
+                    <div id="form-pic-container" class="bg-white rounded-md border border-gray-100 p-8 mb-2">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Kontak Personal In Charge (PIC)</h3>
                             <button onclick="togglePicForm(false)" class="text-gray-400 hover:text-gray-600 text-xs font-bold uppercase tracking-widest"><i class="fas fa-times mr-1"></i> Batal</button>
@@ -347,7 +401,7 @@
                         <button onclick="dismissAlert('alert-success')" class="text-green-400 hover:text-green-600 transition-colors"><i class="fas fa-times"></i></button>
                     </div>
 
-                    <div class="bg-white rounded-md border border-gray-100 p-8">
+                    <div class="bg-white rounded-md border border-gray-100 p-8 mb-2">
                         <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Ganti Kata Sandi</h3>
                         <form class="space-y-6 max-w-full">
                             <div class="flex flex-col">
