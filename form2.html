@@ -105,19 +105,19 @@
         
         <div class="bg-white rounded-md shadow-sm border border-gray-100 overflow-hidden">
             <div class="bg-blue-50 px-6 py-4 border-b border-blue-100 flex justify-between items-center overflow-x-auto">
-                <div class="flex items-center gap-2 min-w-fit">
-                    <span class="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold"><i class="fas fa-check"></i></span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Data Identitas</span>
+                <div onclick="window.location.href='form.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
+                    <span class="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white"><i class="fas fa-check"></i></span>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-blue-950">Data Identitas</span>
                 </div>
                 <div class="h-px w-12 bg-blue-200 mx-2"></div>
-                <div class="flex items-center gap-2 min-w-fit">
-                    <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                    <span class="text-xs font-bold text-blue-900 uppercase tracking-wider">Substansi & RAB</span>
+                <div onclick="window.location.href='form2.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
+                    <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">2</span>
+                    <span class="text-xs font-bold text-blue-900 uppercase tracking-wider hover:text-blue-950">Substansi & RAB</span>
                 </div>
                 <div class="h-px w-12 bg-blue-200 mx-2"></div>
-                <div class="flex items-center gap-2 min-w-fit">
-                    <span class="w-7 h-7 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Unggah Berkas</span>
+                <div onclick="window.location.href='form3.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
+                    <span class="w-7 h-7 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">3</span>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-blue-950">Unggah Berkas</span>
                 </div>
             </div>
 
@@ -258,7 +258,7 @@
                     <div class="bg-blue-50/50 px-4 py-3 flex justify-between items-center">
                         <div class="flex items-center gap-3 flex-1">
                             <span class="bg-white/20 text-blue-950 w-6 h-6 rounded flex items-center justify-center text-sm font-bold">${actIdx}</span>
-                            <input type="text" placeholder="Masukkan Aktivitas" class="bg-transparent border-b border-blue-500 text-blue-950 placeholder-blue-950/20 font-bold outline-none focus:border-white w-full max-w-md py-1 text-sm md:text-md">
+                            <input type="text" placeholder="Masukkan Aktivitas" class="bg-transparent border-b border-blue-500 text-blue-950 placeholder-blue-950/20 font-bold outline-none focus:border-white w-full max-w-7xl py-1 text-sm md:text-md">
                         </div>
                         <button type="button" onclick="removeEl('${id}')" class="text-red-300 hover:text-red-500 ml-4">
                             <i class="fas fa-trash-alt"></i>

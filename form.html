@@ -81,19 +81,19 @@
 
         <div class="bg-white rounded-md shadow-sm border border-gray-100 overflow-hidden">
             <div class="bg-blue-50 px-6 py-4 border-b border-blue-100 flex justify-between items-center overflow-x-auto">
-                <div class="flex items-center gap-2 min-w-fit">
-                    <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                    <span class="text-xs font-bold text-blue-900 uppercase tracking-wider">Data Identitas</span>
+                <div onclick="window.location.href='form.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
+                    <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">1</span>
+                    <span class="text-xs font-bold text-blue-900 uppercase tracking-wider hover:text-blue-950">Data Identitas</span>
                 </div>
                 <div class="h-px w-12 bg-blue-200 mx-2"></div>
-                <div class="flex items-center gap-2 min-w-fit">
-                    <span class="w-7 h-7 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Substansi & RAB</span>
+                <div onclick="window.location.href='form2.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
+                    <span class="w-7 h-7 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">2</span>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-blue-950">Substansi & RAB</span>
                 </div>
                 <div class="h-px w-12 bg-blue-200 mx-2"></div>
-                <div class="flex items-center gap-2 min-w-fit">
-                    <span class="w-7 h-7 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Unggah Berkas</span>
+                <div onclick="window.location.href='form3.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
+                    <span class="w-7 h-7 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">3</span>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-blue-950">Unggah Berkas</span>
                 </div>
             </div>
 
@@ -113,6 +113,33 @@
                                 <option>Program 1 - Peningkatan Kualitas Program Studi PPG</option>
                                 <option>Program 2 - Peningkatan Kualitas LPTK</option>
                             </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-600 uppercase">NPWP <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="Masukkan NPWP" class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-600 uppercase">SK Akreditasi</label>
+                            <!-- <input type="text" placeholder="Masukkan SK akreditasi" class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none"> -->
+                            <input type="text" value="Jul-21" disabled class="w-full p-3 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-500 cursor-not-allowed">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-600 uppercase">Akreditasi Institusi</label>
+                            <!-- <input type="text" placeholder="Masukkan akreditasi institusi" class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none"> -->
+                            <input type="text" value="Unggul" disabled class="w-full p-3 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-500 cursor-not-allowed">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-600 uppercase">Akreditasi PPG</label>
+                            <!-- <input type="text" placeholder="Masukkan akreditasi PPG" class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none"> -->
+                            <input type="text" value="A" disabled class="w-full p-3 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-500 cursor-not-allowed">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-600 uppercase">Nama Bank <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="Masukkan nama bank" class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-600 uppercase">Nomor Rekening <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="Masukkan nomor rekening" class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
                         </div>
                     </div>
                 </div>
