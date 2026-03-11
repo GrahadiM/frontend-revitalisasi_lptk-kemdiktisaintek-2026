@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tahap 3: Unggah Berkas - Revitalisasi LPTK 2026</title>
+    <title>Tahap 2: Substansi & RAB - Revitalisasi LPTK 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -12,9 +12,33 @@
         .gradient-bg { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
         .dropdown-menu { display: none; opacity: 0; transform: translateY(-10px); transition: all 0.2s ease; }
         .dropdown-menu.show { display: block; opacity: 1; transform: translateY(0); }
-        
-        /* Upload Area Hover */
-        .upload-area:hover { border-color: #2563eb; background-color: #f8faff; }
+
+        /* Responsive Table Magic */
+        @media (max-width: 768px) {
+            .responsive-table thead { display: none; }
+            .responsive-table tr { 
+                display: block; 
+                margin-bottom: 1rem; 
+                border: 1px solid #e5e7eb; 
+                border-radius: 0.5rem; 
+                padding: 1rem;
+                background: #f9fafb;
+            }
+            .responsive-table td { 
+                display: block; 
+                padding: 0.5rem 0 !important;
+                border: none !important;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                font-size: 0.65rem;
+                text-transform: uppercase;
+                color: #6b7280;
+                display: block;
+                margin-bottom: 0.25rem;
+            }
+        }
     </style>
 </head>
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
@@ -74,7 +98,7 @@
                 <li><a href="index.html" class="hover:text-blue-600">Detail Program</a></li>
                 <li class="flex items-center text-blue-600 font-semibold">
                     <i class="fas fa-chevron-right mx-2 text-[10px] text-gray-400"></i>
-                    Pengajuan Proposal - Unggah Berkas
+                    Pengajuan Proposal - Substansi & RAB
                 </li>
             </ol>
         </nav>
@@ -85,100 +109,83 @@
                     <span class="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white"><i class="fas fa-check"></i></span>
                     <span class="text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-blue-950">Data Identitas</span>
                 </div>
-                <div class="h-px w-12 bg-green-200 mx-2"></div>
+                <div class="h-px w-12 bg-blue-200 mx-2"></div>
                 <div onclick="window.location.href='form2.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
-                    <span class="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white"><i class="fas fa-check"></i></span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-blue-950">Substansi & RAB</span>
+                    <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">2</span>
+                    <span class="text-xs font-bold text-blue-900 uppercase tracking-wider hover:text-blue-950">Substansi & RAB</span>
                 </div>
                 <div class="h-px w-12 bg-blue-200 mx-2"></div>
                 <div onclick="window.location.href='form3.html'" class="flex items-center gap-2 min-w-fit hover:cursor-pointer">
-                    <span class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">3</span>
-                    <span class="text-xs font-bold text-blue-900 uppercase tracking-wider hover:text-blue-950">Unggah Berkas</span>
+                    <span class="w-7 h-7 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center text-xs font-bold hover:bg-blue-600 hover:text-white">3</span>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-blue-950">Unggah Berkas</span>
                 </div>
             </div>
 
-            <form action="#" class="p-8 space-y-8">
+            <form action="#" class="p-8 space-y-10">
                 
-                <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-exclamation-triangle text-orange-400 mr-3"></i>
-                        <p class="text-xs text-orange-800 leading-relaxed text-justify">
-                            Pastikan semua dokumen menggunakan format <strong>PDF</strong> (kecuali RAB dalam Excel) dengan ukuran maksimal <strong>5MB</strong> - <strong>10MB</strong> per file. Periksa kembali kelengkapan sebelum mengirim pengajuan proposal final.
-                        </p>
+                <div id="aktivitas-container">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-950 flex items-center gap-2">
+                                <i class="fas fa-tasks text-blue-600"></i> Rencana Aktivitas
+                            </h3>
+                            <p class="text-xs text-gray-500">Tambahkan aktivitas utama dan sub-kegiatannya.</p>
+                        </div>
+                        <button type="button" onclick="addActivity()" class="w-full md:w-auto px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-lg hover:bg-blue-700 shadow-md flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i> Tambah Aktivitas
+                        </button>
+                    </div>
+
+                    <div id="activity-list" class="space-y-6"></div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex items-center gap-2">
+                        <i class="fas fa-money-bill-wave text-blue-600"></i> Rincian Anggaran Biaya (RAB)
+                    </h3>
+                    <div class="border border-blue-500 bg-blue-50/50 p-6 rounded-md">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-600 uppercase">Total Dana Diusulkan (Rp) <span class="text-red-500">*</span></label>
+                            <input type="number" placeholder="0" min="0" class="w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none font-bold text-blue-900">
+                            <p class="text-[9px] text-gray-400 italic">Maksimal Rp 500.000.000</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-blue-950 uppercase tracking-tight">Dokumen Proposal</h4>
-                        <p class="text-[10px] text-gray-500">Proposal lengkap sesuai template resmi.</p>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-4 flex items-center justify-center cursor-pointer transition-all">
-                            <input type="file" class="hidden">
-                            <div class="text-center">
-                                <i class="fas fa-cloud-upload-alt text-blue-400 text-xl mb-1"></i>
-                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Unggah File Proposal</span></p>
-                            </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex items-center gap-2">
+                        <i class="fas fa-chart-bar text-blue-600"></i> Keterkaitan IKU PT
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="flex items-center p-4 border rounded-md cursor-pointer hover:bg-gray-50 transition-all border-gray-200">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <span class="ml-3 text-xs text-gray-700">IKU 1: Lulusan Mendapat Pekerjaan Layak</span>
                         </label>
-                    </div>
-                </div>
-
-                <hr class="border-gray-100">
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-blue-950 uppercase tracking-tight">Rincian Anggaran (Excel)</h4>
-                        <p class="text-[10px] text-gray-500">File .xlsx yang merinci setiap komponen biaya.</p>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-4 flex items-center justify-center cursor-pointer transition-all">
-                            <input type="file" class="hidden">
-                            <div class="text-center">
-                                <i class="fas fa-file-excel text-green-500 text-xl mb-1"></i>
-                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Unggah File RAB</span></p>
-                            </div>
+                        <label class="flex items-center p-4 border rounded-md cursor-pointer hover:bg-gray-50 transition-all border-gray-200">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <span class="ml-3 text-xs text-gray-700">IKU 2: Mahasiswa Mendapat Pengalaman di Luar Kampus</span>
                         </label>
-                    </div>
-                </div>
-
-                <hr class="border-gray-100">
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-blue-950 uppercase tracking-tight">Pakta Integritas</h4>
-                        <p class="text-[10px] text-gray-500">Ditandatangani di atas materai Rp.10.000.</p>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-4 flex items-center justify-center cursor-pointer transition-all">
-                            <input type="file" class="hidden">
-                            <div class="text-center">
-                                <i class="fas fa-file-signature text-orange-400 text-xl mb-1"></i>
-                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Unggah Pakta Integritas</span></p>
-                            </div>
+                        <label class="flex items-center p-4 border rounded-md cursor-pointer hover:bg-gray-50 transition-all border-gray-200">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <span class="ml-3 text-xs text-gray-700">IKU 7: Kelas yang Kolaboratif dan Partisipatif</span>
                         </label>
-                    </div>
-                </div>
-
-                <div class="mt-12 p-6 border border-blue-500 bg-blue-50/50 text-blue-950 rounded-md">
-                    <div class="flex items-start gap-4">
-                        <input type="checkbox" id="confirm" class="mt-1 w-4 h-4 rounded border-gray-300">
-                        <label for="confirm" class="text-xs leading-relaxed text-justify">
-                            Saya menyatakan bahwa seluruh data dan dokumen yang diunggah adalah benar dan dapat dipertanggungjawabkan. Saya memahami bahwa ketidak sesuaian data dapat mengakibatkan diskualifikasi pada proses seleksi Revitalisasi LPTK <script>document.write(new Date().getFullYear());</script>.
+                        <label class="flex items-center p-4 border rounded-md cursor-pointer hover:bg-gray-50 transition-all border-gray-200">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <span class="ml-3 text-xs text-gray-700">IKU 8: Program Studi Berstandar Internasional</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-gray-100">
-                    <button type="button" class="w-full md:w-auto px-6 py-3 bg-red-600 text-white text-sm font-bold rounded-md hover:bg-red-700 transition-colors uppercase flex items-center justify-center gap-2" onclick="window.location.href='form2.html'">
+                    <button type="button" class="w-full md:w-auto px-6 py-3 bg-red-600 text-white text-sm font-bold rounded-md hover:bg-red-700 transition-colors uppercase flex items-center justify-center gap-2" onclick="window.location.href='edit-form.html'">
                         <i class="fas fa-arrow-left text-xs"></i> Sebelumnya
                     </button>
                     <div class="flex gap-4 w-full md:w-auto">
                         <button type="button" class="flex-1 md:flex-none px-8 py-3 bg-gray-100 text-gray-600 text-sm font-bold rounded-md hover:bg-gray-200 transition-all uppercase">
                             Simpan Draft
                         </button>
-                        <button type="button" class="flex-1 md:flex-none px-6 py-3 bg-green-600 text-white text-sm font-bold rounded-md hover:bg-green-700 shadow-lg shadow-green-200 transition-all uppercase flex items-center justify-center gap-2" onclick="window.location.href='riwayat.html'">
-                            Kirim Pengajuan <i class="fas fa-paper-plane text-xs"></i>
+                        <button type="button" class="flex-1 md:flex-none px-6 py-3 bg-blue-600 text-white text-sm font-bold rounded-md hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all uppercase flex items-center justify-center gap-2" onclick="window.location.href='edit-form3.html'">
+                            Selanjutnya <i class="fas fa-arrow-right text-xs"></i>
                         </button>
                     </div>
                 </div>
@@ -239,6 +246,75 @@
                 dropdownMenu.classList.remove('show');
             }
         });
+
+        // Logic Aktivitas
+        let actIdx = 0;
+
+        function addActivity() {
+            actIdx++;
+            const id = `act-${Date.now()}`;
+            const html = `
+                <div class="border border-blue-500 bg-white rounded-md shadow-sm overflow-hidden" id="${id}">
+                    <div class="bg-blue-50/50 px-4 py-3 flex justify-between items-center">
+                        <div class="flex items-center gap-3 flex-1">
+                            <span class="bg-white/20 text-blue-950 w-6 h-6 rounded flex items-center justify-center text-sm font-bold">${actIdx}</span>
+                            <input type="text" placeholder="Masukkan Aktivitas" class="bg-transparent border-b border-blue-500 text-blue-950 placeholder-blue-950/20 font-bold outline-none focus:border-white w-full max-w-7xl py-1 text-sm md:text-md">
+                        </div>
+                        <button type="button" onclick="removeEl('${id}')" class="text-red-300 hover:text-red-500 ml-4">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <table class="w-full text-sm responsive-table">
+                            <thead>
+                                <tr class="text-gray-400 text-[10px] uppercase font-bold border-b">
+                                    <th class="text-left pb-3 w-11/12 text-blue-900">Sub Aktivitas</th>
+                                    <!-- <th class="text-left pb-3 w-1/3 text-blue-900">Output</th> -->
+                                    <th class="text-center pb-3 w-12"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="sub-body-${id}"></tbody>
+                        </table>
+                        <button type="button" onclick="addSub('${id}')" class="mt-4 inline-flex items-center gap-2 border border-blue-500 text-xs font-bold text-blue-600 hover:text-blue-800 transition-all bg-blue-50 px-3 py-2 rounded-md">
+                            <i class="fas fa-plus-circle"></i> Tambah Sub-Kegiatan
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('activity-list').insertAdjacentHTML('beforeend', html);
+            addSub(id);
+        }
+
+        function addSub(parentId) {
+            const subId = `sub-${Date.now()}`;
+            const row = `
+                <tr id="${subId}">
+                    <td class="md:py-4 md:pr-4" data-label="Sub Aktivitas">
+                        <textarea rows="1" placeholder="Contoh: Workshop penyusunan modul..." class="w-full border-b border-blue-500 md:bg-transparent focus:border-blue-500 outline-none resize-none text-sm py-1"></textarea>
+                    </td>
+                    <!-- <td class="md:py-4 md:pr-4" data-label="Output">
+                        <input type="text" placeholder="Contoh: Dokumen Modul" class="w-full border-b md:bg-transparent focus:border-blue-500 outline-none text-sm py-1">
+                    </td> -->
+                    <td class="md:py-4 text-center">
+                        <button type="button" onclick="removeEl('${subId}')" class="w-8 h-8 rounded-md border border-red-500 text-red-300 hover:bg-red-50 hover:text-red-500 transition-all flex items-center justify-center mx-auto">
+                            <i class="fas fa-times text-xs"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+            document.getElementById(`sub-body-${parentId}`).insertAdjacentHTML('beforeend', row);
+        }
+
+        function removeEl(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => el.remove(), 200);
+            }
+        }
+
+        // Init
+        window.onload = () => addActivity();
     </script>
 </body>
 </html>
