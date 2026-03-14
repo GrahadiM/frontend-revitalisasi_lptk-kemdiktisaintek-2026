@@ -15,6 +15,7 @@
         
         /* Upload Area Hover */
         .upload-area:hover { border-color: #2563eb; background-color: #f8faff; }
+        .upload-area.active { border-color: #10b981; background-color: #f0fdf4; }
     </style>
 </head>
 <body class="gradient-bg text-gray-800 min-h-screen flex flex-col">
@@ -97,90 +98,83 @@
                 </div>
             </div>
 
-            <form action="#" class="p-8 space-y-8">
-                
+            <form action="#" class="p-8 space-y-6">
                 <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-exclamation-triangle text-orange-400 mr-3"></i>
-                        <p class="text-xs text-orange-800 leading-relaxed text-justify">
-                            Pastikan semua dokumen menggunakan format <strong>PDF</strong> (kecuali RAB dalam Excel) dengan ukuran maksimal <strong>5MB</strong> - <strong>10MB</strong> per file. Periksa kembali kelengkapan sebelum mengirim pengajuan proposal final.
-                        </p>
-                    </div>
+                    <p class="text-xs text-orange-800 leading-relaxed">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Pastikan ukuran file tidak melebihi batas (2MB untuk dokumen legalitas, 5MB untuk Proposal & Anggaran).
+                    </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-blue-950 uppercase tracking-tight">Dokumen Proposal</h4>
-                        <p class="text-[10px] text-gray-500">Proposal lengkap sesuai template resmi.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-blue-950 uppercase tracking-tight">Upload Buku Rekening <span class="text-red-500 text-[10px] normal-case font-normal">(pdf, max 2MB)</span></label>
+                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-6 flex flex-col items-center justify-center cursor-pointer transition-all">
+                            <input type="file" class="hidden file-input" data-max-size="2" accept="application/pdf">
+                            <i class="fas fa-university text-blue-400 text-2xl mb-2"></i>
+                            <p class="text-xs text-gray-600 font-bold file-status">Pilih File PDF</p>
+                        </label>
                     </div>
-                    <div class="md:col-span-2">
-                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-4 flex items-center justify-center cursor-pointer transition-all">
-                            <input type="file" class="hidden">
-                            <div class="text-center">
-                                <i class="fas fa-cloud-upload-alt text-blue-400 text-xl mb-1"></i>
-                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Unggah File Proposal</span></p>
-                            </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-blue-950 uppercase tracking-tight">Upload NPWP <span class="text-red-500 text-[10px] normal-case font-normal">(pdf, max 2MB)</span></label>
+                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-6 flex flex-col items-center justify-center cursor-pointer transition-all">
+                            <input type="file" class="hidden file-input" data-max-size="2" accept="application/pdf">
+                            <i class="fas fa-id-card text-blue-400 text-2xl mb-2"></i>
+                            <p class="text-xs text-gray-600 font-bold file-status">Pilih File PDF</p>
+                        </label>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-blue-950 uppercase tracking-tight">Dokumen Komitmen Dana <span class="text-red-500 text-[10px] normal-case font-normal">(pdf, max 2MB)</span></label>
+                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-6 flex flex-col items-center justify-center cursor-pointer transition-all">
+                            <input type="file" class="hidden file-input" data-max-size="2" accept="application/pdf">
+                            <i class="fas fa-handshake text-blue-400 text-2xl mb-2"></i>
+                            <p class="text-xs text-gray-600 font-bold file-status">Pilih File PDF</p>
+                        </label>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-blue-950 uppercase tracking-tight">Surat Pernyataan Kesanggupan <span class="text-red-500 text-[10px] normal-case font-normal">(pdf, max 2MB)</span></label>
+                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-6 flex flex-col items-center justify-center cursor-pointer transition-all">
+                            <input type="file" class="hidden file-input" data-max-size="2" accept="application/pdf">
+                            <i class="fas fa-file-signature text-blue-400 text-2xl mb-2"></i>
+                            <p class="text-xs text-gray-600 font-bold file-status">Pilih File PDF</p>
+                        </label>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-blue-950 uppercase tracking-tight">Dokumen Proposal <span class="text-red-500 text-[10px] normal-case font-normal">(pdf, max 5MB)</span></label>
+                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-6 flex flex-col items-center justify-center cursor-pointer transition-all">
+                            <input type="file" class="hidden file-input" data-max-size="5" accept="application/pdf">
+                            <i class="fas fa-file-pdf text-red-500 text-2xl mb-2"></i>
+                            <p class="text-xs text-gray-600 font-bold file-status">Unggah Berkas Proposal</p>
+                        </label>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-blue-950 uppercase tracking-tight">Dokumen Anggaran <span class="text-red-500 text-[10px] normal-case font-normal">(xls, xlsx, max 5MB)</span></label>
+                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-6 flex flex-col items-center justify-center cursor-pointer transition-all">
+                            <input type="file" class="hidden file-input" data-max-size="5" accept=".xls,.xlsx,.csv">
+                            <i class="fas fa-file-excel text-green-600 text-2xl mb-2"></i>
+                            <p class="text-xs text-gray-600 font-bold file-status">Unggah Berkas Anggaran</p>
                         </label>
                     </div>
                 </div>
 
-                <hr class="border-gray-100">
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-blue-950 uppercase tracking-tight">Rincian Anggaran (Excel)</h4>
-                        <p class="text-[10px] text-gray-500">File .xlsx yang merinci setiap komponen biaya.</p>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-4 flex items-center justify-center cursor-pointer transition-all">
-                            <input type="file" class="hidden">
-                            <div class="text-center">
-                                <i class="fas fa-file-excel text-green-500 text-xl mb-1"></i>
-                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Unggah File RAB</span></p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <hr class="border-gray-100">
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-blue-950 uppercase tracking-tight">Pakta Integritas</h4>
-                        <p class="text-[10px] text-gray-500">Ditandatangani di atas materai Rp.10.000.</p>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="upload-area relative border-2 border-dashed border-gray-200 rounded-md p-4 flex items-center justify-center cursor-pointer transition-all">
-                            <input type="file" class="hidden">
-                            <div class="text-center">
-                                <i class="fas fa-file-signature text-orange-400 text-xl mb-1"></i>
-                                <p class="text-xs text-gray-600"><span class="font-bold text-blue-600">Unggah Pakta Integritas</span></p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="mt-12 p-6 border border-blue-500 bg-blue-50/50 text-blue-950 rounded-md">
+                <div class="mt-8 p-6 bg-blue-950 rounded-md text-white">
                     <div class="flex items-start gap-4">
-                        <input type="checkbox" id="confirm" class="mt-1 w-4 h-4 rounded border-gray-300">
-                        <label for="confirm" class="text-xs leading-relaxed text-justify">
-                            Saya menyatakan bahwa seluruh data dan dokumen yang diunggah adalah benar dan dapat dipertanggungjawabkan. Saya memahami bahwa ketidak sesuaian data dapat mengakibatkan diskualifikasi pada proses seleksi Revitalisasi LPTK <script>document.write(new Date().getFullYear());</script>.
+                        <input type="checkbox" id="confirm" class="mt-1 w-4 h-4 rounded">
+                        <label for="confirm" class="text-xs leading-relaxed text-gray-300">
+                            Saya menyatakan bahwa seluruh data dan dokumen yang diunggah adalah benar dan dapat dipertanggungjawabkan.
                         </label>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-gray-100">
-                    <button type="button" class="w-full md:w-auto px-6 py-3 bg-red-600 text-white text-sm font-bold rounded-md hover:bg-red-700 transition-colors uppercase flex items-center justify-center gap-2" onclick="window.location.href='form2.html'">
-                        <i class="fas fa-arrow-left text-xs"></i> Sebelumnya
-                    </button>
-                    <div class="flex gap-4 w-full md:w-auto">
-                        <button type="button" class="flex-1 md:flex-none px-8 py-3 bg-gray-100 text-gray-600 text-sm font-bold rounded-md hover:bg-gray-200 transition-all uppercase">
-                            Simpan Draft
-                        </button>
-                        <button type="button" class="flex-1 md:flex-none px-6 py-3 bg-green-600 text-white text-sm font-bold rounded-md hover:bg-green-700 shadow-lg shadow-green-200 transition-all uppercase flex items-center justify-center gap-2" onclick="window.location.href='riwayat.html'">
-                            Kirim Pengajuan <i class="fas fa-paper-plane text-xs"></i>
-                        </button>
-                    </div>
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-6">
+                    <button type="button" class="w-full md:w-auto px-6 py-3 bg-red-600 text-white text-xs font-bold rounded-md uppercase" onclick="window.location.href='form2.html'"><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+                    <button type="button" class="w-full md:w-auto px-10 py-3 bg-green-600 text-white text-xs font-bold rounded-md shadow-lg uppercase">Kirim Pengajuan <i class="fas fa-paper-plane ml-2"></i></button>
                 </div>
             </form>
         </div>
@@ -238,6 +232,33 @@
             if (!dropdownButton.contains(e.target)) {
                 dropdownMenu.classList.remove('show');
             }
+        });
+
+        // Fitur Tampil Nama File & Validasi Ukuran
+        document.querySelectorAll('.file-input').forEach(input => {
+            input.addEventListener('change', function(e) {
+                const fileName = e.target.files[0] ? e.target.files[0].name : "Pilih File";
+                const fileSize = e.target.files[0] ? e.target.files[0].size / 1024 / 1024 : 0; // dalam MB
+                const maxSize = parseFloat(this.getAttribute('data-max-size'));
+                const statusLabel = this.closest('.upload-area').querySelector('.file-status');
+                const uploadArea = this.closest('.upload-area');
+
+                if (fileSize > maxSize) {
+                    console.log(e.target.files[0]);
+                    console.log(e.target.files[0].size/1024);
+                    alert(`File "${fileName}" melebihi batas maksimal ${maxSize}MB!`);
+                    this.value = ""; // reset file
+                    statusLabel.textContent = "Ukuran file terlalu besar!";
+                    statusLabel.classList.replace('text-gray-600', 'text-red-500');
+                    uploadArea.classList.remove('active');
+                } else if (e.target.files[0]) {
+                    console.log(e.target.files[0]);
+                    console.log(e.target.files[0].size/1024);
+                    statusLabel.textContent = fileName;
+                    statusLabel.classList.replace('text-gray-600', 'text-green-600');
+                    uploadArea.classList.add('active');
+                }
+            });
         });
     </script>
 </body>

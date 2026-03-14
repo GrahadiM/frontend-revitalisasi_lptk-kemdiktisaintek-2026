@@ -73,25 +73,24 @@
         </div>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl">
         <div class="mb-8">
             <h1 class="text-2xl font-extrabold text-blue-950 tracking-tight">Profil Institusi</h1>
             <p class="text-xs text-gray-500 mt-1 uppercase tracking-wider font-semibold">Manajemen Data LPTK & Kontak PIC</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             
             <div class="lg:col-span-1 space-y-6">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="bg-white rounded-md border border-gray-100 overflow-hidden">
                     <div class="h-24 bg-blue-900"></div>
                     <div class="px-6 pb-6">
                         <div class="relative flex justify-center -mt-12 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=Universitas+Negeri+Jakarta&background=0284c7&color=fff&size=128" 
-                                 class="w-24 h-24 rounded-2xl border-4 border-white shadow-md bg-white">
+                            <img src="https://ui-avatars.com/api/?name=Universitas+Negeri+Jakarta&background=0284c7&color=fff&size=128" class="w-24 h-24 rounded-md border-4 border-white shadow-md bg-white">
                         </div>
                         <div class="text-center">
                             <h2 class="text-lg font-bold text-blue-950">Universitas Negeri Jakarta</h2>
-                            <p class="text-xs font-bold text-blue-600 bg-blue-50 inline-block px-3 py-1 rounded-full mt-2">Akreditasi Unggul</p>
+                            <p class="border border-blue-600 text-xs font-bold text-blue-600 bg-blue-50 inline-block px-3 py-1 rounded-full mt-2">Akreditasi Unggul</p>
                         </div>
                         <div class="mt-8 space-y-4">
                             <div class="flex items-center gap-3 text-gray-600">
@@ -102,22 +101,26 @@
                                 <i class="fas fa-map-marker-alt w-5 text-gray-400"></i>
                                 <span class="text-xs font-semibold">DKI Jakarta, Indonesia</span>
                             </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i class="fas fa-globe w-5 text-gray-400"></i>
+                                <a href="https://unj.ac.id" target="_blank" class="text-xs font-semibold text-blue-600 hover:underline">www.unj.ac.id</a>
+                            </div>
                         </div>
-                        <button class="w-full mt-8 bg-gray-900 text-white text-xs font-bold py-3 rounded-lg hover:bg-gray-800 transition-all">
+                        <button class="w-full mt-8 border-2 border-blue-600 bg-blue-600 text-white font-bold py-3 rounded-md text-xs hover:bg-white hover:text-blue-600 transition-all">
                             <i class="fas fa-camera mr-2"></i> Ubah Logo PT
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-2 space-y-6">
+            <div class="lg:col-span-3 space-y-6">
                 <div class="flex gap-6 border-b border-gray-200 text-sm font-bold mb-2">
                     <button onclick="showTab('info-umum')" id="btn-info-umum" class="tab-btn text-blue-600 border-b-2 border-blue-600 pb-3">Informasi Umum</button>
                     <button onclick="showTab('data-pic')" id="btn-data-pic" class="tab-btn text-gray-400 hover:text-gray-600 pb-3 transition-colors">Data PIC</button>
                     <button onclick="showTab('keamanan')" id="btn-keamanan" class="tab-btn text-gray-400 hover:text-gray-600 pb-3 transition-colors">Keamanan Akun</button>
                 </div>
 
-                <div id="info-umum" class="tab-content active bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                <div id="info-umum" class="tab-content active bg-white rounded-md shadow-sm border border-gray-100 p-8">
                     <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div class="md:col-span-2 flex flex-col">
                             <label class="info-label mb-1">Nama Resmi Perguruan Tinggi</label>
@@ -143,7 +146,7 @@
                     </form>
                 </div>
 
-                <div id="data-pic" class="tab-content bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                <div id="data-pic" class="tab-content bg-white rounded-md shadow-sm border border-gray-100 p-8">
                     <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Kontak Personal In Charge (PIC)</h3>
                     <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div class="flex flex-col">
@@ -170,7 +173,7 @@
                     </form>
                 </div>
 
-                <div id="keamanan" class="tab-content bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                <div id="keamanan" class="tab-content bg-white rounded-md shadow-sm border border-gray-100 p-8">
                     <h3 class="text-sm font-bold text-blue-950 mb-6 uppercase tracking-tight">Ganti Kata Sandi</h3>
                     <form class="space-y-6 max-w-full">
                         <div class="flex flex-col">
@@ -192,14 +195,6 @@
                             </button>
                         </div>
                     </form>
-                </div>
-
-                <div class="bg-amber-50 border border-amber-100 rounded-lg p-4 flex gap-4">
-                    <i class="fas fa-exclamation-circle text-amber-500 mt-1"></i>
-                    <div>
-                        <p class="text-xs font-bold text-amber-800 uppercase">Peringatan Keamanan</p>
-                        <p class="text-xs text-amber-700 leading-relaxed mt-1">Jangan berikan kredensial login Anda kepada pihak manapun. Pastikan data PIC adalah pejabat yang berwenang untuk validasi data hibah.</p>
-                    </div>
                 </div>
             </div>
         </div>
